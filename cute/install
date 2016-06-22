@@ -1,0 +1,68 @@
+#!/bin/sh
+
+INSTALL_DIR="/usr"
+
+if test "$1" = "remove"
+then
+	rm -rfv $INSTALL_DIR/share/doc/cute
+	rm -fv $INSTALL_DIR/share/icons/cute.xpm
+	rm -rfv $INSTALL_DIR/share/cute
+	rm -fv /usr/X11R6/bin/cute 
+	exit
+fi
+
+if test ! -d $INSTALL_DIR
+then
+	mkdir -v $INSTALL_DIR
+fi
+if test ! -d $INSTALL_DIR/share
+then
+	mkdir -v $INSTALL_DIR/share/
+fi
+if test ! -d $INSTALL_DIR/share/doc
+then
+	mkdir -v $INSTALL_DIR/share/doc
+fi
+if test ! -d $INSTALL_DIR/share/doc/cute
+then
+	mkdir -v $INSTALL_DIR/share/doc/cute
+	chmod a+x $INSTALL_DIR/share/doc/cute
+	chmod a+r $INSTALL_DIR/share/doc/cute -R
+fi
+if test ! -d $INSTALL_DIR/share/icons/
+then
+	mkdir -v $INSTALL_DIR/share/icons/
+fi
+if test ! -d $INSTALL_DIR/share/cute
+then
+        mkdir -v $INSTALL_DIR/share/cute
+fi
+if test ! -d $INSTALL_DIR/share/cute/langs
+then
+        mkdir -v $INSTALL_DIR/share/cute/langs
+fi
+if test ! -d $INSTALL_DIR/share/cute/lib
+then
+        mkdir -v $INSTALL_DIR/share/cute/lib
+fi
+if test ! -d $INSTALL_DIR/share/cute/lib/scripts
+then
+        mkdir -v $INSTALL_DIR/share/cute/lib/scripts
+fi
+
+echo copy cute binary to $INSTALL_DIR/X11R6/bin
+cp ../bin/cute $INSTALL_DIR/X11R6/bin
+if test ! -e doc/doc/index.html
+then
+	ln doc/doc/book1.html doc/doc/index.html
+fi
+#if you change this dir, you also have to change DOC_PATH in config.h
+echo copy documentation to $INSTALL_DIR/share/doc/cute
+cp doc/doc/* $INSTALL_DIR/share/doc/cute/ -r
+echo copy language config files to $INSTALL_DIR/share/cute/langs
+#if you change this dir, you also have to change LANG_DIR in config.h
+cp langs/* $INSTALL_DIR/share/cute/langs 
+echo copy scripts to $INSTALL_DIR/share/cute/lib
+cp scripts/* $INSTALL_DIR/share/cute/lib/scripts/ 
+echo copy icon
+cp icons/cute.xpm $INSTALL_DIR/share/icons 

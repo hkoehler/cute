@@ -1,0 +1,13 @@
+
+def count_lines():
+	execfile("/home/heiko/.cute/scripts/c_count.py")
+
+countCmd = createCommand(count_lines, "Count Lines")
+addPythonTool(countCmd);
+
+addTool("Debug CUTE", "ddd cute")
+addTool("Qt Designer", ":!/usr/lib/qt3/bin/designer")
+addTool("CUTE", "cute")
+addTool("Generate Makefile", "qmake cute.pro -o Makefile")
+addTool("Make Clean", "make clean")
+addTool("Rebuild all", "make clean all")

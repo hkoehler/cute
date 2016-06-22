@@ -1,0 +1,40 @@
+opening (g)zipped files
+makeing backups
+calltips 
+cvs/rcs binding
+indent with settings dialog
+menu configuration
+remote editing (SSH, FTP, HTTP)
+
+Python/Configuration
+
+class for command
+extra commands for adding shell command to menu
+definition of build, run ... commands in language config file
+definition of own keywords in lang config file
+
+Project Features
+
+compressing and backuping of whole project
+execution of shell/cute script
+CVS access
+project docklet with file cathegories
+project templates
+project menu
+	New
+	Open
+	Recent Projects
+	Close
+	Make Backup
+	(Add Tagsfile)
+	Options
+
+Tags Features
+
+management of tags files
+searching of tags
+displaying only tags in current file
+
+command for rectangular selection
+key map templates
+open command in CUTE Shell, which opens given file in CUTE

@@ -1,0 +1,9 @@
+In order to compile CUTE just type ./configure and make. After compiling cute 
+is in the bin dir.
+Before compiling make sure QTDIR contains the path to the QT installation 
+( i.e. QTDIR=/usr/lib/qt3 under SuSE ) and QMAKESPEC contains the dir path
+to the qmake definitions (i.e. QMAKESPEC=/usr/lib/qt3/mkspecs/linux-g++/ under SuSE).
+After compiling type ./install.
+
+Please report any bug found in CUTE!
+

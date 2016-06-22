@@ -1,0 +1,118 @@
+<project>
+    <file zoom="1" cursor="3391:31" load="yes" lang="C++" ><![CDATA[cute.cpp]]></file>
+    <file zoom="1" cursor="538:0" load="yes" lang="C++" ><![CDATA[cute.h]]></file>
+    <config name="default" >
+        <var><![CDATA[QMAKESPEC=/usr/lib/qt3/mkspecs/linux-g++]]></var>
+        <var><![CDATA[QTDIR=/usr/lib/qt3]]></var>
+        <build><![CDATA[make]]></build>
+        <compile><![CDATA[make %.o]]></compile>
+        <go><![CDATA[../bin/cute]]></go>
+    </config>
+    <file zoom="1" cursor="513:1" load="yes" lang="C++" ><![CDATA[cuteview.cpp]]></file>
+    <file zoom="1" cursor="81:0" load="yes" lang="C++" ><![CDATA[cutescintilla.cpp]]></file>
+    <file zoom="0" cursor="134:15" load="yes" lang="C++" ><![CDATA[py_config.cpp]]></file>
+    <file zoom="1" cursor="52:27" load="no" lang="C++" ><![CDATA[projectview.h]]></file>
+    <file zoom="1" cursor="535:17" load="no" lang="C++" ><![CDATA[py_buffer.cpp]]></file>
+    <file zoom="0" cursor="221:0" load="no" lang="C++" ><![CDATA[py_buffer.h]]></file>
+    <file zoom="0" cursor="33:0" load="no" lang="C++" ><![CDATA[py_config.h]]></file>
+    <file zoom="-3" cursor="74:0" load="no" lang="C++" ><![CDATA[python_api.cpp]]></file>
+    <file zoom="1" cursor="0:0" lang="C++" ><![CDATA[python_api.h]]></file>
+    <file zoom="0" cursor="0:0" ><![CDATA[qcompletionbox.cpp]]></file>
+    <file zoom="1" cursor="0:0" load="no" lang="C++" ><![CDATA[qcompletionbox.h]]></file>
+    <file zoom="1" cursor="75:0" lang="C++" ><![CDATA[readtags.c]]></file>
+    <file zoom="1" cursor="1:37" load="no" lang="C++" ><![CDATA[readtags.h]]></file>
+    <file zoom="1" cursor="66:0" load="no" lang="C++" ><![CDATA[replacedlg.cpp]]></file>
+    <file zoom="1" cursor="6:27" load="no" lang="C++" ><![CDATA[replacedlg.h]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[resource.h]]></file>
+    <file zoom="0" cursor="49:16" load="no" lang="C++" ><![CDATA[savedlg.cpp]]></file>
+    <file zoom="1" cursor="8:70" load="no" lang="C++" ><![CDATA[savedlg.h]]></file>
+    <file zoom="1" cursor="136:0" load="no" lang="C++" ><![CDATA[settingsdlg.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[settingsdlg.h]]></file>
+    <file zoom="1" cursor="56:25" load="no" lang="C++" ><![CDATA[shortcutdlg.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[shortcutdlg.h]]></file>
+    <file zoom="1" cursor="51:0" lang="C++" ><![CDATA[shortcuts.cpp]]></file>
+    <file zoom="1" cursor="50:16" lang="C++" ><![CDATA[shortcuts.h]]></file>
+    <file zoom="0" cursor="79:33" load="no" lang="C++" ><![CDATA[shortcutsdlg.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[shortcutsdlg.h]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[tagsdlg.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[tagsdlg.h]]></file>
+    <file zoom="0" cursor="62:9" load="no" lang="C++" ><![CDATA[tagsview.cpp]]></file>
+    <file zoom="1" cursor="63:1" load="no" lang="C++" ><![CDATA[tagsview.h]]></file>
+    <file zoom="1" cursor="34:17" load="no" lang="Plain" ><![CDATA[todo]]></file>
+    <file zoom="1" cursor="72:1" load="no" lang="C++" ><![CDATA[windowdlg.cpp]]></file>
+    <file zoom="1" cursor="35:32" load="no" lang="C++" ><![CDATA[windowdlg.h]]></file>
+    <file zoom="1" cursor="0:0" load="no" lang="Plain" ><![CDATA[INSTALL]]></file>
+    <file zoom="1" cursor="0:0" load="no" lang="Plain" ><![CDATA[LICENSE]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[Makefile]]></file>
+    <file zoom="0" cursor="421:0" load="no" lang="C++" ><![CDATA[cmdinterpreter.cpp]]></file>
+    <file zoom="0" cursor="102:30" load="no" lang="XML" ><![CDATA[cute.cute]]></file>
+    <file zoom="1" cursor="0:0" load="no" lang="Plain" ><![CDATA[cute.doxygen]]></file>
+    <file zoom="0" cursor="11:36" load="no" lang="Makefile" ><![CDATA[cute.pro]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[cute.spec]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[cutedoc.cpp]]></file>
+    <file zoom="1" cursor="28:0" lang="C++" ><![CDATA[cutedoc.h]]></file>
+    <file zoom="0" cursor="28:19" load="no" lang="C++" ><![CDATA[cutescintilla.h]]></file>
+    <file zoom="-3" cursor="109:2" load="no" lang="C++" ><![CDATA[cuteshell.cpp]]></file>
+    <file zoom="1" cursor="36:19" load="no" lang="C++" ><![CDATA[cuteshell.h]]></file>
+    <file zoom="1" cursor="186:8" load="yes" lang="C++" ><![CDATA[cuteview.h]]></file>
+    <file zoom="0" cursor="297:0" load="no" lang="C++" ><![CDATA[dirview.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[dirview.h]]></file>
+    <file zoom="0" cursor="89:41" load="no" lang="C++" ><![CDATA[finddlg.cpp]]></file>
+    <file zoom="1" cursor="38:30" load="no" lang="C++" ><![CDATA[finddlg.h]]></file>
+    <file zoom="1" cursor="48:40" load="no" lang="C++" ><![CDATA[findinfilesdlg.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[findinfilesdlg.h]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[general.h]]></file>
+    <file zoom="1" cursor="63:0" lang="C++" ><![CDATA[helpviewer.cpp]]></file>
+    <file zoom="1" cursor="0:0" ><![CDATA[helpviewer.h]]></file>
+    <file zoom="1" cursor="10:5" lang="Shell" ><![CDATA[install]]></file>
+    <file zoom="1" cursor="24:0" load="no" lang="C++" ><![CDATA[bookmark.cpp]]></file>
+    <file zoom="-3" cursor="69:0" load="no" lang="C++" ><![CDATA[bookmark.h]]></file>
+    <file zoom="0" cursor="186:0" load="no" lang="C++" ><![CDATA[projectdlg.cpp]]></file>
+    <file zoom="1" cursor="31:19" lang="C++" ><![CDATA[projectdlg.h]]></file>
+    <file zoom="1" cursor="5:16" load="no" lang="XML" ><![CDATA[project.xml]]></file>
+    <file zoom="0" cursor="401:0" load="no" lang="C++" ><![CDATA[project.cpp]]></file>
+    <file zoom="0" cursor="33:17" load="no" lang="C++" ><![CDATA[project.h]]></file>
+    <file zoom="0" cursor="29:9" load="no" lang="HTML" ><![CDATA[doc/doc.sgml]]></file>
+    <file zoom="2" cursor="1620:23" load="yes" lang="C++" ><![CDATA[lexer.cpp]]></file>
+    <file zoom="0" cursor="79:28" load="no" lang="C++" ><![CDATA[lexer.h]]></file>
+    <file zoom="1" cursor="38:21" load="no" lang="C++" ><![CDATA[projectview.cpp]]></file>
+    <file zoom="0" cursor="33:0" load="no" lang="C++" ><![CDATA[outputview.h]]></file>
+    <file zoom="1" cursor="67:49" load="no" lang="C++" ><![CDATA[mdi.h]]></file>
+    <file zoom="0" cursor="136:0" load="no" lang="C++" ><![CDATA[mdi.cpp]]></file>
+    <file zoom="1" cursor="136:33" load="no" lang="C++" ><![CDATA[outputview.cpp]]></file>
+    <file zoom="1" cursor="76:16" load="no" lang="Python" ><![CDATA[langs/cpp.py]]></file>
+    <file zoom="1" cursor="62:18" load="no" lang="C++" ><![CDATA[cutehook.cpp]]></file>
+    <file zoom="1" cursor="19:0" load="no" lang="C++" ><![CDATA[cutehook.h]]></file>
+    <file zoom="1" cursor="16:35" load="no" lang="Python" ><![CDATA[scripts/gen_lexer_cfg.py]]></file>
+    <file zoom="-1" cursor="395:51" load="no" lang="XML" ><![CDATA[ui/aboutdlg.ui]]></file>
+    <file zoom="-2" cursor="0:0" load="no" lang="C++" ><![CDATA[cutestatusbar.cpp]]></file>
+    <file zoom="-2" cursor="5:61" load="no" lang="C++" ><![CDATA[cutestatusbar.h]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/finddialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/findinfilesdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/licensedlg.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/outputviewbase.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/prefdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/projectdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/replacedialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/savedialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="XML" ><![CDATA[ui/settings.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/shortcutdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/shortcutsdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/statusbar.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/tagsdialog.ui]]></file>
+    <file zoom="0" cursor="0:0" lang="" ><![CDATA[ui/windowdialog.ui]]></file>
+    <cwd><![CDATA[.]]></cwd>
+    <current-config name="default" />
+    <file zoom="0" cursor="18:19" load="no" lang="C++" ><![CDATA[main.cpp]]></file>
+    <file zoom="0" cursor="4:19" load="no" lang="Plain" ><![CDATA[changelog.txt]]></file>
+    <tagsfile><![CDATA[tags]]></tagsfile>
+    <bookmark line="2183" name="void CUTE::slotViewUseMonospacedFont()" file="cute.cpp" />
+    <bookmark line="588" name="void CUTEView::recordMacro(unsigned int msg, unsigned long wParam, long lParam)" file="cuteview.cpp" />
+    <bookmark line="490" name="void CUTEView::runMacro()" file="cuteview.cpp" />
+    <bookmark line="548" name="bool CUTEView::setMacro(QString macro_str)" file="cuteview.cpp" />
+    <bookmark line="161" name="void Lexer::initScintilla(QextScintilla *sc)" file="lexer.cpp" />
+    <bookmark line="532" name="PyObject *moveCursor(PyObject *self, PyObject *args)" file="py_buffer.cpp" />
+    <bookmark line="129" name="void CUTEShell::keyPressEvent( QKeyEvent *e )" file="cuteshell.cpp" />
+    <bookmark line="50" name="void TagsView::readTagsFile(tagFile *tags)" file="tagsview.cpp" />
+    <current-file><![CDATA[cuteview.cpp]]></current-file>
+</project>

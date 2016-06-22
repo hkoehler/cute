@@ -1,0 +1,111 @@
+                     QScintilla - a Port to Qt of Scintilla
+
+
+INTRODUCTION
+
+To quote http://www.scintilla.org/:
+
+"Scintilla is a free source code editing component.  It comes with complete
+source code and a license that permits use in any free project or commercial
+product. 
+
+As well as features found in standard text editing components, Scintilla
+includes features especially useful when editing and debugging source code.
+These include support for syntax styling, error indicators, code completion and
+call tips.  The selection margin can contain markers like those used in
+debuggers to indicate breakpoints and the current line.  Styling choices are
+more open than with many editors, allowing the use of proportional fonts, bold
+and italics, multiple foreground and background colours and multiple fonts."
+
+Scintilla runs on Windows and on UNIX/Linux using the GTK+ GUI toolkit.
+
+QScintilla is a port or Scintilla to the Qt GUI toolkit from Trolltech and runs
+on any operating system supported by Qt (eg. Windows, UNIX/Linux, MacOS/X).  Qt
+v3 or later is required.
+
+This version of QScintilla is based on Scintilla v1.60.
+
+
+LICENSING
+
+Scintilla is released under the following license:
+
+"License for Scintilla and SciTE
+
+ Copyright 1998-2003 by Neil Hodgson <neilh@scintilla.org>
+
+ All Rights Reserved
+
+ Permission to use, copy, modify, and distribute this software and its
+ documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies and that
+ both that copyright notice and this permission notice appear in
+ supporting documentation.
+
+ NEIL HODGSON DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+ SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ AND FITNESS, IN NO EVENT SHALL NEIL HODGSON BE LIABLE FOR ANY
+ SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE
+ OR PERFORMANCE OF THIS SOFTWARE."
+
+QScintilla, however, uses the same license model as Qt itself.  QScintilla is
+available under the GNU GPL on UNIX/Linux systems.  QScintilla is available
+under a commercial license on Windows, UNIX/Linux and MacOS/X systems.  The
+commercial license allows closed source applications using QScintilla to be
+developed and distributed.
+
+See the file "LICENSE" to see what license this copy of QScintilla is released
+under.
+
+
+INSTALLATION
+
+Check for any other README files in this directory that relate to your
+particular platform.  Feel free to contribute a README for your platform or to
+provide updates to any existing documentation.
+
+To configure QScintilla, edit the file "qscintilla.pro" in the "qt" directory.
+As supplied, QScintilla is built as a shared library/DLL with thread support
+enabled, and installed in the same directory as the Qt library.
+
+To install the QScintilla library in another directory, edit the value of
+"DESTDIR".  To build the library in situ (in the "qt" directory) then comment
+out "DESTDIR" entirely - this will also mean that you will not need root
+privileges under UNIX/Linux.
+
+If your Qt library was built without thread support, edit the value of "CONFIG"
+and remove "thread".
+
+If you want to build a static library, edit the value of "CONFIG" and replace
+"dll" with "staticlib", and edit the value of "DEFINES" and remove
+"QEXTSCINTILLA_MAKE_DLL".
+
+To build QScintilla on UNIX/Linux/MacOS, run (as root):
+
+	cd qt
+	qmake qscintilla.pro
+	make
+	cp qextscintilla*.h $QTDIR/include
+	cp qscintilla*.qm $QTDIR/translations
+
+If you are using the GNU C++ compiler you might want to edit "qt/Makefile" and
+add "-fno-exceptions" to "CXXFLAGS" before running "make".
+
+To build QScintilla on Windows, run:
+
+	cd qt
+	qmake qscintilla.pro
+	nmake
+	copy qextscintilla*.h %QTDIR%\include
+	copy qscintilla*.qm %QTDIR%\translations
+	copy %QTDIR%\lib\qscintilla.dll %QTDIR%\bin
+
+Please do not try to build the GPL version of QScintilla under Windows.  It
+will not work and you would be contravening the GPL.
+
+
+Phil Thompson
+phil@riverbankcomputing.co.uk

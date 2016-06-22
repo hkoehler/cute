@@ -1,0 +1,539 @@
+$Log: ChangeLog,v $
+Revision 1.88  2004/05/09 10:30:31  phil
+Changed the build system so that the platform name is no longer included in the
+package filename.
+Released as v1.3.
+
+
+2004/05/02 00:36:46  phil
+Completed the merge of Scintilla v1.60.
+
+
+2004/04/27 17:57:39  phil
+Fixed potential buffer overflow problem in QextScintilla::text(int line).
+
+
+2004/04/24 20:12:38  phil
+Fixed a bug with autocompleting from the current document.
+
+
+2004/04/24 09:01:37  phil
+Added README.MacOS which includes the required patch to Qt v3.3.2 and earlier
+versions.
+Updated the NEWS file.
+
+
+2004/04/18 13:35:06  phil
+Fixed up the internal mini-editor test application.
+Fixed the problem preventing QextScintillaDocument being usable on Windows.
+
+
+2004/04/14 18:24:29  phil
+Added new German translations from Detlev.
+Fixed problem with losing double-clicks on Windows.
+Fixed the copyright notices.
+
+
+2004/04/12 19:13:52  phil
+Some changes for Windows - still doesn't build there though.
+
+
+2004/04/12 14:49:01  phil
+Added the QextScintillaLexerPerl class.
+Lexers can now provide a specific set of word characters.
+
+
+2004/04/07 21:02:00  phil
+Changed the implementation of the Copy() method when doing double buffered
+drawing.  It is now faster and, hopefully, has fixed the redraw bug on X11 (and
+might also make a difference on MacOS/X).
+The read-only flag only applies to user input and not program changes (to mimic
+QTextEdit).
+
+
+2004/04/04 16:59:56  phil
+Added the QextScintillaDocument class.
+Added pool() to QextScintillaBase.
+Added document() and setDocument() to QextScintilla.
+
+
+2004/03/28 15:16:26  phil
+Renamed QextScintilla.setCaretColor() to setCaretForegroundColor().
+Added recolor(), setCaretWidth(), setCaretLineVisible() and
+setCaretLineBackgroundColor() to QextScintilla.
+Added STYLE_MAX to QextScintillaBase.
+
+
+2004/03/27 18:25:28  phil
+Added setCaretColor(), setSelectionForegroundColor() and
+setSelectionBackgroundColor() to QextScintilla.
+
+
+2004/03/22 18:53:41  phil
+Fixed QextScintilla.textChanged() so that it really is emitted only when text
+has been inserted or deleted.
+
+
+2004/03/22 17:51:14  phil
+Fixed bug in auto-completion using the current document.
+Fixed bug in dropping text into a UTF8 document.
+Some other tidy ups to drag'n'drops.
+
+
+2004/03/21 20:47:56  phil
+Updated the default command set to match Scintilla v1.59.
+Now builds successfully, but otherwise untested.
+
+
+2004/03/20 18:50:39  phil
+Added INDIC_BOX.
+Added SC_SEL_*.
+Added the SCI_SETSELECTIONMODE, SCI_GETSELECTIONMODE,
+SCI_GETLINESELSTARTPOSITION, SCI_GETLINESELENDPOSITION, SCI_LINEDOWNRECTEXTEND,
+SCI_LINEUPRECTEXTEND, SCI_CHARLEFTRECTEXTEND, SCI_CHARRIGHTRECTEXTEND,
+SCI_HOMERECTEXTEND, SCI_VCHOMERECTEXTEND, SCI_LINEENDRECTEXTEND,
+SCI_PAGEUPRECTEXTEND, SCI_PAGEDOWNRECTEXTEND, SCI_STUTTEREDPAGEUP,
+SCI_STUTTEREDPAGEUPEXTEND, SCI_STUTTEREDPAGEDOWN, SCI_STUTTEREDPAGEDOWNEXTEND,
+SCI_WORDLEFTEND, SCI_WORDLEFTENDEXTEND, SCI_WORDRIGHTEND,
+SCI_WORDRIGHTENDEXTEND, SCI_SETWHITESPACECHARS, SCI_SETCHARSDEFAULT,
+SCI_AUTOCGETCURRENT, SCI_ALLOCATE functions.
+Added the SCLEX_CLW, SCLEX_CLWNOCASE, SCLEX_LOT, SCLEX_YAML, SCLEX_TEX,
+SCLEX_METAPOST, SCLEX_POWERBASIC, SCLEX_FORTH, SCLEX_ERLANG, SCLEX_OCTAVE,
+SCLEX_MSSQL, SCLEX_VERILOG lexers.
+
+
+2004/03/20 13:33:14  phil
+Changes to the internal build system to use repo rather than repoman.
+Merged Scintilla v1.59.  (Not tested at all - probably won't compile.)
+
+
+2003/08/16 20:46:15  phil
+Released as v1.2.
+
+
+2003/08/12 14:56:05  phil
+Merged Scintilla v1.54.
+Changed the library version to 3.0.0.
+
+
+2003/08/12 12:25:19  phil
+Added the internal TODO file.
+
+
+2003/05/23 07:22:15  phil
+Updated the documentation.
+Released as v1.1.
+
+
+2003/05/20 10:37:03  phil
+Updated translations from Detlev.
+Added QextScintilla::modificationAttempted().
+
+
+2003/05/16 21:30:45  phil
+Merged Scintilla v1.53.
+Added GlobalClass as a style of the C++ lexer (using keyword set 4).
+Added foldAtElse() and setFoldAtElse() to QextScintillaLexerCPP.
+
+
+2003/05/16 11:34:27  phil
+Added QextScintillaBase::SCN_MODIFYATTEMPTRO.
+
+
+2003/05/11 10:26:11  phil
+Increased the maximum number of keyword sets to match Scintilla.
+Changed references to WhiteSpace in lexers to Default (but kept WhiteSpace for
+backwards compatibility).
+By default the C++ lexer now folds preprocessor blocks (to match the default
+SciTE properties file rather than the code).
+Hopefully fixed auto-completion lists and call tips under Windows without
+breaking them under X11.
+Added the QextScintillaLexerHTML class.
+Fixed bug where abandoned paints weren't handled properly.
+
+
+2003/05/07 22:07:22  phil
+Fixed the window decorations for auto-completion lists and call tips under
+Windows.
+
+
+2003/05/07 16:52:11  phil
+Added the QextScintillaLexerSQL class.
+Changed the library version number to 1.1.0.
+
+
+2003/05/03 14:26:31  phil
+Fixed a bug when trying to paste an empty clipboard.
+Changed the library version to 1.0.1.
+
+
+2003/04/26 13:59:53  phil
+Updated German translations from Detlev.
+Released as v1.0.
+
+
+2003/04/18 22:20:13  phil
+Merged Scintilla v1.52.
+Added QextScintillaLexer.setDefaultFont().
+Added setCallTipsForegroundColor() and setCallTipsHighlightColor() to
+QextScintilla.
+Changed QextScintilla.setCallTipsVisible() to interpret a negative argument as
+meaning display call tips one at a time with scrolling arrows.
+
+
+2003/04/13 15:11:07  phil
+Foxed a documentation bug in QextScintilla.setCallTipsVisible().
+Made sure that call tips are unique.
+
+
+2003/04/07 11:52:00  phil
+Ensured that the current item of an auto-completion list is always visible.
+Fixed QextScintilla::append().
+Call tips and auto-completion lists should now be non-modal.
+
+
+2003/04/01 20:41:55  phil
+Added the missing educational license files.
+
+
+2003/04/01 20:40:50  phil
+Added support for the educational version.
+Fixed a few Windows build problems.
+
+
+2003/03/22 16:44:11  phil
+Updated German translations from Detlev.
+
+
+2003/03/16 16:23:47  phil
+Fully implemented the high level API to macros.
+Re-ordered the default command table.
+
+
+2003/03/15 23:41:40  phil
+Added the QextScintillaCommand, QextScintillaCommandSet and QextScintillaMacro
+classes.  (The latter is not yet fully implemented.)
+Added QextScintilla.standardCommands().
+Brought the documentation up to date.
+
+
+2003/03/14 19:48:48  phil
+Fixed another Windows compile problem.
+Control characters are now passed properly to Scintilla so that they can be
+recognised as command keys.
+
+
+2003/03/13 12:59:10  phil
+Added QextScintillaAPIs.add().
+The caret is now displayed when either a call tip or auto-completion list is
+displayed.
+Fully implemented the high level API to call tips.
+Fixed bug compiling against Qt v3.0.x.
+
+
+2003/03/09 18:36:46  phil
+Removed the DBCS functions as QScintilla doesn't support DBCS.
+Minor portability fixes for Windows.
+The high level API auto-completion methods are now fully implemented.
+
+
+2003/03/06 10:37:27  phil
+Added QextScintilla.AutoCompletionSource, QextScintilla.autoCompleteFromAPIs(),
+QextScintilla.autoCompleteFromDocument(), QextScintilla.autoCompletionSource(),
+QextScintilla.autoCompletionThreshold(), QextScintilla.setAutoCompletionAPIs(),
+QextScintilla.setAutoCompletionSource(),
+QextScintilla.setAutoCompletionThreshold().  Note that these are just hooks and
+haven't yet been implemented.
+
+
+2003/03/03 18:04:52  phil
+The low-level APIs to call tips and autocompletion lists should now work.
+Added the QextScintillaAPIs class.
+
+
+2003/03/01 14:46:48  phil
+Added missing #include of stdlib.h.
+
+
+2003/03/01 09:21:20  phil
+Fixed compile problem for Qt v3.0.x.
+
+
+2003/02/27 16:19:52  phil
+Updated dates on the copyright notices.
+
+
+2003/02/26 23:41:23  phil
+Merged Scintilla v1.51.
+Added QextScintilla.resetFoldMarginColors() and
+QextScintilla.setFoldMarginColors().
+
+
+2003/02/26 19:30:25  phil
+Updated to Scintilla v1.50.
+Added the QextScintillaBase.SendScintilla() overload that takes a QPixmap *.
+SCI_MARKERDEFINEPIXMAP now takes a pointer to a QPixmap instance rather than a
+pointer to raw or textual XPM image data.
+QextScintilla.markerDefine() now takes a QPixmap rather than an XPM image.
+Added QSCINTILLA_VERSION, QSCINTILLA_VERSION_STR and QSCINTILLA_BUILD.
+Added QextScintilla.WrapMode, QextScintillaPrinter.setWrapMode() and
+QextScintillaPrinter.wrapMode().
+
+
+2003/01/20 09:04:46  phil
+Minor tweak to build properly under IRIX.
+Added QextScintilla.lineAt().
+
+
+2002/12/25 10:47:33  phil
+Added QextScintilla.ensureCursorVisible().
+
+
+2002/12/17 13:19:42  phil
+Added the QextScintillaBase::SendScintilla() overload that hides the Scintilla
+RangeToFormat structure.
+Added the QextScintillaPrinter class.
+Changed the low level implementation of a Scintilla Surface to be a QPainter
+with an attached QPaintDevice rather than a QPaintDevice.  This allows the
+printing code to have complete control over the QPainter.
+
+
+2002/12/16 11:14:48  phil
+Fixed a bug entering double-byte encoded characters in UTF-8 mode.
+
+
+2002/12/15 18:31:45  phil
+Fix a crash when pasting an empty string.
+
+
+2002/12/11 13:48:02  phil
+Released as v0.3.
+
+
+2002/12/07 14:01:09  phil
+Brought the documentation up to date.
+Minor changes needed to build properly under Windows.
+Changed the default fonts under Windows to match the SciTE ones.
+
+
+2002/12/01 22:27:47  phil
+Added drag'n'drop support.
+
+
+2002/11/26 12:47:38  phil
+Fixed bug in selectToMatchingBrace() and moveToMatchingBrace() in
+QextScintilla.
+Added the QextScintilla.markerDefine() overload that handles XPM pixmaps.
+
+
+2002/11/22 22:42:37  phil
+Added Detlev's support for different folding styles.
+Added the QextScintillaBase.SendScintilla() overload that handles colours.
+
+
+2002/11/21 18:56:37  phil
+Fixed the value of QextScintilla.AiClosing.
+Added braceMatching(), setBraceMatching(), moveToMatchingBrace(),
+selectToMatchingBrace(), setMatchedBraceBackgroundColor(),
+setMatchedBraceForegroundColor(), setUnmatchedBraceBackgroundColor,
+setUnmatchedBraceForegroundColor() to QextScintilla.
+Fixed the default lexer colours so that they match SciTE.
+
+
+2002/11/18 19:35:19  phil
+Added the binary versions of the translations to CVS so that the build machine
+doesn't need Qt installed.
+Added the QextScintillaBase.SendScintilla() that allows messages that need a
+TextRange structure to be handled.
+Added autoIndentStyle() and setAutoIndentStyle() to QextScintillaLexer.
+Added autoIndent() and setAutoIndent() to QextScintilla.
+
+
+2002/11/14 22:30:51  phil
+Added full i18n support and German translations (thanks to Detlev of course).
+Minor fixes for building under Windows.
+
+
+2002/11/13 20:25:28  phil
+Fixed QextScintilla::indent() and QextScintilla::unindent().
+Removed QextScintillaBase::setScintillaProperty() (the SCI_SETPROPERTY message
+should be used instead).
+Added another QextScintillaBase::sendScintilla() overload to make using
+SCI_SETPROPERTY easier to use.
+Added convertEols(), eolMode(), setEolMode(), eolVisibility(),
+setEolVisibility(), whitespaceVisibility(), setWhitespaceVisibility() to
+QextScintilla.
+Added foldComments(), setFoldComments(), foldQuotes(), setFoldQuotes(),
+indentationWarning(), setIndentationWarning() to QextScintillaLexerPython.
+Added foldComments(), setFoldComments(), foldCompact(), setFoldCompact(),
+foldPreprocessor(), setFoldPreprocessor(), stylePreprocessor(),
+setStylePreprocessor() to QextScintillaLexerCPP.
+Added support for case insensitive keywords to QextScintillaLexerCPP.
+Added various methods to transparently handle lexer properties including
+reading and writing them from and to settings files.
+Fixed the handling of the context menu.
+
+
+2002/11/03 20:17:03  phil
+Updated to Scintilla v1.49.
+Fixed bugs in end-of-line fill settings in QextScintillaLexer.
+Fixed bugs in UTF support (thanks to Nickolay Kolchin-Semyonov).
+Added isUtf8() and setUtf8() to QextScintilla.
+Removed SCN_MODIFYATTEMPTRO as it is now deprecated.
+
+
+2002/10/25 18:59:58  phil
+Added QextScintilla::lines().
+Fixed a copy/paste bug.
+Removed the incorrect fix for the Scintilla indentation guides bug and worked
+around it, rather than fixing it properly.
+
+
+2002/10/24 08:41:54  phil
+Added foldAll(), folding() and setFolding() to QextScintilla.
+Added setScintillaProperty() to QextScintillaBase.
+Released as v0.2.
+
+
+2002/10/23 17:26:44  phil
+Fixed a Scintilla bug where indentation guides were being displayed incorrectly
+when indentations didn't use tabs.
+Fixed pasting from the clipboard.
+
+
+2002/10/22 21:27:39  phil
+Added cursorPositionChanged(), replace(), zoomIn(), zoomOut() and zoomTo() to
+QextScintilla.
+Fixed some bugs in QextScintilla::findFirst().
+
+
+2002/10/21 21:26:53  phil
+Added findFirst(), findNext(), removeSelectedText(), getCursorPosition(),
+beginUndoAction(), endUndoAction(), redo(), undo(), isRedoAvailable(),
+isUndoAvailable() and the text() overload to QextScintilla.
+
+
+2002/10/20 21:59:44  phil
+Added backspaceDeindents(), setBackspaceDeindents(), tabIndents(),
+setTabIndents(), tabWidth(), setTabWidth(), indent(), unindent(),
+indentation(), setIndentation(), indentationWidth(), setIndentationWidth(),
+indentationsUseTabs(), setIndentationsUseTabs() to QextScintilla.
+Made some changes to the clipboard management, but more work is still needed.
+
+
+2002/10/19 18:41:23  phil
+Added clear(), copy(), copyAvailable(), cut(), getSelection(),
+hasSelectedText(), indentationGuides(), insertAt(), paste(), selectAll(),
+selectedText(), selectionChanged(), setCursorPosition(),
+setIndentationGuides(), setIndentationGuidesBackgroundColor(),
+setIndentationGuidesForegroundColor() setSelection() to QextScintilla.
+Added QSCN_SELCHANGED() to QextScintillaBase.
+
+
+2002/10/18 17:29:06  phil
+Added the QextScintillaLexerCPP, QextScintillaLexerCSharp,
+QextScintillaLexerIDL, QextScintillaLexerJava and QextScintillaLexerJavaScript
+classes.
+Fixed incorrect font defaults for the Python lexer.
+
+
+2002/10/12 23:44:51  phil
+Fixed the QextScintilla::marginClicked() signature and changed it to pass the
+line number rather than the pixel position.
+Added mouse wheel support from Detlev.
+Setting the lexer no longer resets all the styles.
+The cursor shape now changes when moved across the text area and margins.
+Added ensureLineVisible(), setMarginsBackgroundColor(),
+setMarginsForegroundColor(), setMarginsFont() and the overloaded
+setMarginWidth() to QextScintilla.
+Changed the visible policy to match SciTE's default.
+
+
+2002/10/11 14:14:19  phil
+Added the end-of-line fill as a lexer stype options to the high-level API.
+Fixed the default Python styles so that they are the same as SciTE (at least on
+UNIX).
+Fixed the bug that left cursor artefacts lying around.
+
+
+2002/10/06 16:00:05  phil
+Removed QextScintillaBase::Colourise().
+Added QextScintillaLexer and QextScintillaLexerPython.
+
+
+2002/10/05 13:33:23  phil
+Documented margins and markers.
+Added support for margins and markers to QextScintilla.
+
+
+2002/10/03 10:45:34  phil
+Fixed the README regarding building as a static library.
+QextScintilla::append() behaves more like QTextEdit::append().
+Added setText(), text(), textChanged(), isReadOnly(), setReadOnly(),
+isModified(), setModified(), modificationChanged() and length() to
+QextScintilla.
+More documentation.
+
+
+2002/10/01 17:37:10  phil
+Changes required to build under Windows.
+
+
+2002/09/30 15:31:10  phil
+Added the QextScintillaBase::SendScintilla() overload to make it easier to pass
+strings from PyQt.
+
+
+2002/09/28 08:56:05  phil
+Added the doxygen configuration file.
+The internal build system now creates the doxygen documentation.
+The original Scintilla documentation is now installed in a sub-directory of the
+doc directory.
+Added QextScintillaBase::Colourise().
+
+
+2002/09/18 14:46:34  phil
+Released as v0.1.
+
+
+2002/09/18 08:35:31  phil
+Changed the re-implemented protected methods in QextScintillaBase so that they
+are like the rest of Qt.
+
+
+2002/09/17 18:17:41  phil
+The context menu now works.
+Key presses are now handled.
+Focus changes are now handled.
+Added all the installation/licensing infrastructure.
+
+
+2002/09/17 11:08:34  phil
+The mouse handling now seems to be correct.
+The context menu is displayed, but none of the options yet do anything.
+
+
+2002/09/16 18:53:31  phil
+Scrollbars now seem to be working.
+
+
+2002/09/16 08:09:40  phil
+Further refined the low-level API so that it is as close as possible to the
+standard Scintilla API.
+
+
+2002/09/16 00:35:44  phil
+Completed the implementation of the low-level API (ie. QextScintillaBase).
+Disabled INCLUDE_DEPRECATED_FEATURES for the Qt port and fixed the bugs in the
+main code that appear as a consequence.
+
+
+2002/09/15 19:00:10  phil
+Fixed the paint event handling - we now seem to have a basically working
+editor.
+
+
+2002/09/14 21:49:56  phil
+Added the start of the Qt port, including a simple test editor.  As yet nothing
+works, but everything compiles.
+

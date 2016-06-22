@@ -1,0 +1,1600 @@
+<!DOCTYPE book  PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+
+<book lang="en">
+
+	<bookinfo>
+		<title>
+			CUTE User-friendly Text Editor
+		</title>
+		<date> Date </date>
+		<author>
+			<firstname>Heiko</firstname><surname>Köhler</surname>
+		</author>
+		<abstract>
+			<para>
+			CUTE is a scintilla based, scriptable code editor using python for extensions and configuration. Its main purpose is to provide an user-friendly text editor for programmers with a common user interface.
+			</para>
+		</abstract>
+	</bookinfo>
+	
+	<chapter>
+		<title> Overview </title>
+		<para>
+			CUTE is designed for programmers, so it supports many programming languages. It also integrates with external commands such as 'make' in order to make the edit compile cycle as fast as possible. Custom menu entries can be inserted with the python interface of CUTE. For fast code navigation, bookmarks and ctags can be used.
+		</para>
+		<para>
+			The main concept of CUTE is its ability to be extended and configured with python. Indeed there is a built-in python interpreter in CUTE. Each option must be set with the python interface, but this is made easier by the inclusion of a options dialog to set most options. When CUTE exits a config file is generated, holding all options and shortcuts including a recent file list. In most cases you don't even have to know about the python interpreter.
+		</para>
+		<para>
+			There is a command box on the tool bar. It can execute shell commands and special CUTE commands, which are described later. All output of a command is shown in a message docklet but stderr and stdout messages are also viewable separately in the Stdout and Stderr docklets. If you want to jump to a specified line, given in the output, you can just double-click the item and CUTE will position the cursor at that line in the source file.
+		</para>
+		<para>
+			Most programmers work with several files at a time, so CUTE provides a multi document interface. A file browser in the side panel lets you select more files for editing. If you want to search through several files you just have to open the grep front end dialog. All search results are shown in the search docklet, from which a result can be double-clicked in order to jump to that line.
+		</para>
+		<para>
+			Using CUTE, it is possible for related files to be grouped together to form a Project; any of the files can then easily be reloaded for editing. Within a project it is possible to set your own Compile, Build and Go commands. A Project can also contain one or more configurations, each of which can define its own environment variables or commands.  For example, a Project could contain both a debug and a release configuration, readily switching between them. As an extension to Projects, Sessions can be used to store the whole workspace with the current project.
+		<para>
+			Of course you can search within single files too. CUTE also supports regular expressions for search and replace commands.
+		</para>
+	</chapter>
+	
+	<chapter>
+		<title>
+			The User Interface
+		</title>
+		<para>
+			CUTE's user interface is made up of a main window with some 
+			docklets and an area for child views. A child view is a 
+			scintilla text widget, which can load a file, highlight source 
+			code, fold text, auto-complete text and so on. Only one instance 
+			of a file can be loaded at a time, to avoid overwriting previously 
+			changed files. There is a command box for running CUTE and shell commands. 
+			Available commands can be listed by pulling the list box down; it 
+			is also capable of auto-completion in the same way. CUTE commands 
+			will be described in detail later.
+		</para>
+		<sect1>
+		<title> Dialogs </title>
+		<sect2>
+			<title> Options Dialog </title>
+			<para>
+				The most important options can be set with the options dialog. 
+			</para>
+		</sect2>
+	
+		<sect2>
+			<title>Shortcuts Dialog</title>
+			<para>
+				Each shortcut can be set using this dialog. On double-clicking 
+				on a shortcut, a little dialog will be shown. Just type in the 
+				new key sequence. If the new shortcut is unique and not part of 
+				another one it will be accepted by the shortcut dialog. Press 
+				the OK button to confirm the new shortcut, or Cancel to undo 
+				the alteration. 
+			</para>
+		</sect2>
+		<sect2>
+			<title>Find Dialog</title>
+			<para>
+				Searching for a string or a regular expression is done with 
+				the find dialog. After the first occurrence is found, 
+				the &ldquo;Find Next&rdquo; and &ldquo;Find Previous&rdquo; 
+				commands can be used to repeat the search.
+			</para>
+		</sect2>
+	
+		<sect2>
+			<title>
+				Replace Dialog
+			</title>
+			<para>
+				Replacing one or more strings is done with the replace dialog. 
+				The user has to confirm each substitution (unless the &ldquo;Replace 
+				All&rdquo; or &ldquo;Replace in Selection&rdquo; button is pressed, 
+				when no confirmation is needed).
+			</para>
+		</sect2>
+	
+		<sect2>
+			<title>
+				Find in Files Dialog
+			</title>
+			<para>
+				This dialog is a front end for grep. The search results are displayed 
+				in the search docklet with line numbers; you can double-click a result to jump to that line.
+			</para>
+		</sect2>
+	
+		<sect2>
+			<title>
+				Save Dialog
+			</title>
+			<para>
+				When CUTE exits or a Project is closed, if necessary a Save dialog will be shown. Any unsaved modified files are listed 
+				and the user can (de)select those he wishes to save.
+			</para>
+		</sect2>
+
+		<sect2>
+			<title>
+				Project Options Dialog
+			</title>
+			<para>
+				Called from the Project > Options menu, this dialog allows a Project to be configured. 
+				In the General tab you can set the working directory of a Project and Select, Add or Delete a configuration.
+				The selected configuration can be modified in the Environment and Commands sections.
+				The project's files are listed in the Files section. 
+				Note that all file paths are displayed relative to the directory containing the project file.
+			</para>
+		</sect2>
+		</sect1>
+	
+	</chapter>
+	
+	<chapter>
+		<title>
+			Editing
+		</title>
+		<para>
+			There are three ways to edit text in CUTE. First you can use keyboard commands, 
+			either directly or by means of macros. Second you can use a CUTE command, which you type 
+			in the command box on the toolbar. Finally you can write python scripts, which are 
+			discussed in the 'Programming CUTE' chapter.
+		</para>
+		<para>
+			A CUTE command can be undone by typing Ctrl+Z. The available editing commands can be seen in 
+			the 'Options &gt; Configure Shortcuts' menu item.
+		</para>
+		<sect1>
+			<title>
+				Editing Commands
+			</title>
+			<para>
+				CUTE is designed for supporting as much programming languages as possible, thus many common editing commands
+				are defined. The python interface is for new language specific commands.
+			</para>
+			<sect2>
+				<title> Text Modification, Cut, Copy and Paste </title>
+				<para>
+					You can edit text in CUTE just like in any text editor which is compatible with common GUI standards.
+					Two editing modes are supported: inserting and overwriting. Switch between them by pressing Ins.
+					If there is text selected, Cut it with Shift+Del and Paste it with Shift+Ins (the key-bindings may be altered to those of your choosing).
+					Please note that there are two different clipboards available: the X Window clipboard and the clipboard of the current view. When you mark text with the mouse it is copied to the X clipboard and can be pasted by a middle click of the mouse.
+					If your mouse has only two buttons, middle clicks can usually be emulated by clicking the left and right buttons at the same time.
+				</para>
+			</sect2>
+			<sect2>
+				<title> Selection </title>
+				<para>
+					There are two text selection modes available. The default is Stream selection (where the mouse selects all the text between left button down and left up),
+					but you can switch to rectangle mode by pressing Ctrl+Alt during the selection process (this selects only the text within the rectangular area defined by the mouse).
+					Double-clicking selects a word, where a word is defined as the text between two delimiters (what constitutes a delimiter depends on the current language).
+				</para>
+			</sect2>
+			<sect2>
+				<title> Bookmarks </title>
+				<para>
+					A bookmark is a highlit line in a file and is created by clicking the margin.
+					The bookmark adjusts automatically when lines are deleted or inserted.
+					You can jump to a bookmark by right clicking the mouse and selecting one from the
+					Bookmarks sub menu (or use the Search menu).
+					To delete one, just click on the margin.
+					If a project is loaded, any bookmarks are stored in the project file.
+				</para>
+			</sect2>
+			<sect2>
+				<title> Autocompletion </title>
+				<para>
+					Autocompletion completes the current word if a similar word is found.
+					In the options dialog you can select either the current file or the current tags file as the autocompletion source.
+					After you have typed several characters of a word, the autocompletion list will automatically pop up.
+					The number of chars to type before this happens can be defined in the Threshold option in the options dialog.
+					If you prefer to control autocompletion yourself, put a huge number in Threshold so that it never triggers; then when you want to autocomplete a word, type (by default) Ctrl+Return.
+				</para>
+			</sect2>
+			<sect2>
+				<title> Indentation </title>
+				<para>
+					Indentation is configured by four options: indentationsUseTabs, autoIndent, tabIndents and backspaceUnindents.
+					Normally pressing Tab inserts a tab, but if you set the indentationsUseTabs option you can press Tab anywhere in the line and the whole line will indent one tabs-worth.
+					If autoindent is enabled, when a new line is created by pressing Return, it inherits the current indentation level.
+					indentationsUseTabs decides whether tabs or spaces are used for indentation.
+					The number of spaces is set with the tabWidth option, which you can also set in the Options > Tab Size menu.
+				</para>
+			</sect2>
+			<sect2>
+				<title> Folding and Zooming </title>
+				<para>
+					Depending on the current programming language, Folding can be used to hide parts of the code
+					e.g. the body of a function or an if statement can be hidden.
+					CUTE supports multifont editing, thus it is laborious to set each font size separately.
+					Zooming increments or decrements each font size.
+				</para>
+			</sect2>
+		<sect1>
+			<title>
+				CUTE Commands
+			</title>
+			<para>
+				Each CUTE command starts with a specific string; for example if you want to execute 
+				an external program, you have to type :!program. &ldquo;:!&rdquo; is the start 
+				string, indicating that command is an execution command (nobody dies ;-)). A % is substituted 
+				by the file name of the current document. More CUTE commands are listed below:
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>!</term>
+				<listitem>
+					<para>
+						filter selected text with the given program; for example &ldquo;!indent&rdquo; 
+						causes the selected text to be indented.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>&gt;</term>
+				<listitem>
+					<para>
+						insert output of a given program at the cursor position.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>/</term>
+				<listitem>
+					<para>
+						search text forward. Possible arguments are: re, cs, word, wrap. If one of 
+						these is given the search will match a regular expression, will be 
+						case sensitive, will search a word or will wrap around lines. 
+						For example: &ldquo;/switch(.*) re&rdquo;, will find a switch statement in C.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>?</term>
+				<listitem>
+					<para>
+						same as above, but search backward.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:</term>
+				<listitem>
+					<para>
+						jump to given line number. For example &quot;:22&quot;
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:py</term>
+					<listitem>
+						<para>
+							run a python command. For example &quot;:py clear()&quot; 
+							will clear current view, as clear() is a built-in CUTE/python function.
+						</para>
+					</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
+					:pythony
+				</term>
+				<listitem>
+					<para>
+						same as above.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:s</term>
+					<listitem>
+						<para>
+							this is a sed-like substitution command. Options are g or gc. 
+							g will replace all found strings, gc will replace all found strings, 
+							but the user must confirm each substitution. Without an option 
+							CUTE will replace only the first occurrence. For example: &ldquo;:s/true/TRUE gc&rdquo;
+						</para>
+					</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:q</term>
+				<listitem>
+					<para>
+						exit CUTE.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:quit</term>
+				<listitem>
+					<para>
+						same as above.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:w</term>
+				<listitem>
+					<para>
+						save current file.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:write</term>
+				<listitem>
+					<para>
+						same as above.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:e</term>
+				<listitem>
+					<para>
+						open given file. For example &quot;:e /home/heiko/CUTE/cute.cpp&quot;.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:edit</term>
+				<listitem>
+					<para>
+						same as above.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:wq</term>
+				<listitem>
+					<para>
+						save all files and exit.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:x</term>
+				<listitem>
+					<para>
+						same as above.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:close</term>
+				<listitem>
+					<para>
+						close current file.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:cd</term>
+				<listitem>
+					<para>
+						change current directory. For example &ldquo;:cd /home/heiko/CUTE&rdquo;.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>:char</term>
+				<listitem>
+					<para>
+						insert the given integer value as a character at the current cursor position. For example &ldquo;:char 190&rdquo;, will insert 3/4 char.
+					</para>
+				</listitem>
+			</varlistentry>
+			</variablelist>
+		</sect1>
+	</chapter>
+	
+	<chapter>
+		<title>
+			Searching and Replacing
+		</title>
+		<para>
+			There are two way to search and replace a string. You can use the find and replace dialogs, or the CUTE command box as described in the previous chapter. Regular expressions are supported too.
+		</para>
+		<sect1>
+			<title>
+			Regular Expressions
+			</title>
+			<para>
+				In a regular expression, special characters interpreted are: 
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>.</term>
+					<listitem>
+						<para>
+							Matches any character 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\(</term>
+					<listitem>
+						<para>
+							This marks the start of a region for tagging a match. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\)</term>
+					<listitem>
+						<para>
+							This marks the end of a tagged region. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\n</term>
+					<listitem>
+						<para>
+							Where n is 1 through 9 refers to the first through ninth tagged region when replacing. For example, if the search string was Fred\([1-9];\)XXX and the replace string was Sam\1YYY, when applied to Fred2XXX this would generate Sam2YYY. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\&lt;</term>
+					<listitem>
+						<para>
+							This matches the start of a word using Scintilla's definitions of words. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\&gt;</term>
+					<listitem>
+						<para>
+							This matches the end of a word using Scintilla's definition of words. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>\x</term>
+					<listitem>
+						<para>
+							This allows you to use a character x that would otherwise have a special meaning. For example, \[ would be interpreted as [ and not as the start of a character set. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>[...]</term>
+					<listitem>
+						<para>
+							This indicates a set of characters, for example, [abc] means any of the characters a, b or c. You can also use ranges, for example [a-z] for any lower case character. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>[^...]</term>
+					<listitem>
+						<para>
+							The complement of the characters in the set. For example, [^A-Za-z] means any character except an alphabetic character. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>^</term>
+					<listitem>
+						<para>
+							This matches the start of a line (unless used inside a set, see above). 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>$</term>
+					<listitem>
+						<para>
+							This matches the end of a line. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>*</term>
+					<listitem>
+						<para>
+							This matches 0 or more times. For example, Sa*m matches Sm, Sam, Saam, Saaam and so on. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>+</term>
+					<listitem>
+						<para>
+							This matches 1 or more times. For example, Sa+m matches Sam, Saam, Saaam and so on.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</sect1>
+		<sect1>
+			<title>
+				Tags
+			</title>
+			<sect2>
+				<title>
+					Building tags files
+				</title>
+				<para>
+					When the code is parsed by ctags it generates a file called tags. This file includes locations of all functions, 
+					methods and so forth. By clicking the tags tool button a dialog will appear asking which directory to search 
+					through and whether to recurse into subdirectories. 
+				</para>
+			</sect2>
+			<sect2>
+				<title>
+					Jumping to tags
+				</title>
+				<para>
+					After building the tags file the tag docklet has several (programming language specific) category entries 
+					with tag subentries. On clicking a tag entry in the docklet, the cursor is positioned at the location of the tag in the file where it is defined.
+					Alternatively a selection can be used as a tag: click the right mouse button to bring up the 
+					context menu, and select "Find Tag".
+				</para>
+			</sect2>
+		</sect1>
+	</chapter>
+	
+	<chapter>
+		<title>
+			Configuration
+		</title>
+		<sect1>
+			<title>
+				Main Configuration
+			</title>
+			<para>
+				The whole autogenerated configuration is stored in $HOME/.cuterc. This is a python file where the special variables of the built-in python interpreter of CUTE are held. Most of these can be configured with the 'Options > Configure CUTE' menu item. It is possible to modify the rest of the variables manually: load the file with 'Options > Show .cuterc file', adjust the values of any of the predefined variables, and then run the file using 'Extra > Run current file' (you cannot just Save the file as it would be at first ignored, and then overwritten when CUTE exits). All config variables are defined in python modules. There are 4 modules: general, edit, view and lang. The .cuterc file will execute $HOME/cute.pre_config (if it exists) before any options are set. After setting all options, .cuterc will execute $HOME/cute.post_config (if it exists).
+			</para>
+			<para>
+				Therefore any user configuration should be placed in either cute.pre_config or cute.post_config. Put definitions of new commands in cute.pre_config if they are to be configured in .cuterc.
+			</para>
+		</sect1>
+		<sect1>
+			<title>
+				Language Configuration
+			</title>
+			<para>
+				Each language has its own python module and each module has its own file in $HOME/.cute/langs/. For example, the C++ options are defined in $HOME/.cute/langs/cpp.py. In each language module various properties are defined. A property is a python class, which stores the foreground and background color, font, size, whether end of line is filled with background color, whether the font is bold, underlined or italic. In addition there are several variables for comments defined: blockCommentStart, streamCommentStart and streamCommentEnd, which are used for the &quot;Block Un/Comment&quot; and &quot;Stream Comment&quot; edit command.
+		</sect1>
+	</chapter>
+	
+	<chapter>
+		<title> Projects </title>
+		<sect1>
+			<title> Overview </title>
+			<para>
+				Projects are used to store files, bookmarks, working dir and configurations.
+				A configuration consists of environment variables and commands for compiling the current file, building and running the program.
+			</para>
+		</sect1>
+		<sect1>
+			<title> Creating Projects </title>
+			<para>
+				An empty project can be created (Project/New).
+				After creating the project, further files can be added by using Open from the menu or toolbar, and then confirming in the subsequent pop-up dialog that they should become part of the project.
+				All file or directory paths are stored relative to the directory containing the project file, which means that
+				only files in the project directory or below can be added.
+			</para>
+			<para>
+				But a project isn't made up only of files. Bookmarks too are stored, and now one or more configurations
+				can be added to a project.  From the Project menu, open the Options dialog. First you have to add a configuration.
+				After that the Commands and Environment fields are enabled and you can now edit them.
+				This feature is useful when working with two compilers, e.g. you can switch between the compiler for your system and another cross compiler.
+				It is also possible to create two configurations each with a different build command: one to generate the debug, the other the release version of your program.
+			</para>
+		</sect1>
+	</chapter>
+	
+	 
+	<chapter>
+		<title>
+			Programming CUTE
+		</title>
+		<para>
+			The most important feature of CUTE is the built-in python interpreter. It is responsible for configuring and extending CUTE. There are tasks which a user will wish to automate in a text editor. One way to do this is to record a macro once and execute it several times. The alternative is to write a python script using CUTE functions.
+		</para>
+		<sect1>
+			<title>
+				The CUTE/python API
+			</title>
+			<sect2>
+				<title>
+					General Functions
+				</title>
+				<para>
+					General functions are defined in the cute python module.
+				</para>
+				<variablelist>
+				  <varlistentry>
+				  <term>
+			load(filename)
+			</term><listitem><para>Load a file into the editor.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			inputInteger(text)
+			</term><listitem><para>Get an integer value from the user via a dialog.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			inputText(text)
+			</term><listitem><para>Get a string from the user via a dialog.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			message(text)
+			</term><listitem><para>Show a message dialog.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			question(text)
+			</term><listitem><para>Show a message dialog asking a question with yes and no button.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			getOpenFileName()
+			</term><listitem><para>Show an open file dialog and returns file name. You can also use a filter. For example: getOpenFileName(&ldquo;*.cpp&rdquo;).
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			getExistingDirectory()
+			</term><listitem><para>Show an open dir dialog and returns dir name.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			loadSession(filename)
+			</term><listitem><para>Load a previously-saved session called filename.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			viewList()
+			</term><listitem><para>Retrieve list containing all views.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			activateView(view)
+			</term><listitem><para>The given view will become the current one.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+			
+				 </variablelist>
+			
+				 </sect2>
+			
+				 <sect2>
+				  <title>
+			Configuration Functions
+				 </title>
+				 <para>
+			These functions are defined in the config module.
+				 </para>
+				 <variablelist>
+				  <varlistentry>
+				  <term>
+			addRecentFile(filename)
+			</term><listitem><para>Add an item to the recent file menu.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			addBookmark(name,line_number)
+			</term><listitem><para>Add an item to the bookmark menu.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			addTool(name,command)
+			</term><listitem><para>Add an item to the tools menu.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			addPythonTool(command)
+			</term><listitem><para>Add an item to the tools menu, after the command has been created with createCommand()
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setCurrentDir()
+			</term><listitem><para>Set working directory.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMainWidgetGeometry(x,y,width,height)
+			</term><listitem><para>Set main window geometry: width, height and position.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			map(command,shortcut)
+			</term><listitem><para>Map an action to a shortcut.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			createCommand(function,name)
+			</term><listitem><para>creates a new command implemented in function with the given name; it can be bound to a shortcut and inserted into a menu
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			Color(red,green,blue)
+			</term><listitem><para>Construct new color object.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+			
+				 </variablelist>
+			
+				 </sect2>
+			
+				 <sect2>
+				  <title>
+			Scintilla Functions
+				 </title>
+				 <para>
+			Scintilla functions are defined in the cute module.
+				 </para>
+				 <para>
+			These functions can be called with or without a view object: for example it is possible to call my_view.clear() in order to clear a certain view or just clear() in order to clear the current view.
+				 </para>
+				 <variablelist>
+				  <varlistentry>
+				  <term>
+			clear()
+			</term><listitem><para>Deletes all the text in the text edit.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			copy()
+			</term><listitem><para>Copies selected text to the clipboard.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			cut()
+			</term><listitem><para>Copies selected text to the clipboard and then deletes the text.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			foldAll()
+			</term><listitem><para>If any lines are currently folded then they are all unfolded. Otherwise all lines are folded. This has the same effect as clicking in the fold margin with the shift and control keys pressed.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			paste()
+			</term><listitem><para>Pastes text from the clipboard into the text edit at the current cursor position.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			undo()
+			</term><listitem><para>Undo the last change or sequence of changes.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			redo()
+			</term><listitem><para>Redo previously-Undone changes or sequences of changes.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			selectToMatchingBrace()
+			</term><listitem><para>If the cursor is either side of a brace character then move it to the position of the corresponding brace and select the text between the braces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			zoomIn()
+			</term><listitem><para>Zooms in on the text by making the base font size one point larger and recalculating all font sizes.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			zoomOut()
+			</term><listitem><para>Zooms out on the text by making the base font size range points smaller and recalculating all font sizes.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			beginUndoAction()
+			</term><listitem><para>Mark the beginning of a sequence of actions that can be undone by a single call to undo().
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			endUndoAction()
+			</term><listitem><para>Mark the end of a sequence of actions that can be undone by a single call to undo().
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			autoIndent()
+			</term><listitem><para>Returns 1 if auto-indentation is enabled.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			backspaceUnindents()
+			</term><listitem><para>Returns 1 if the backspace key unindents a line instead of deleting a character.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			braceMatching()
+			</term><listitem><para>Returns the brace matching mode.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			eolMode()
+			</term><listitem><para>Returns the end-of-line mode.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			eolVisibility()
+			</term><listitem><para>Returns the visibility of end-of-lines.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			findNext()
+			</term><listitem><para>Find the next occurrence of the string found using findFirst().
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			folding()
+			</term><listitem><para>Returns the current folding style.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			hasSelectedText()
+			</term><listitem><para>Returns 1 if some text is selected.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			indentationGuides()
+			</term><listitem><para>Returns 1 if the display of indentation guides is enabled.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			indentationsUseTabs()
+			</term><listitem><para>Returns 1 if indentations are created using tabs and spaces, rather than just spaces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			indentationWidth()
+			</term><listitem><para>Returns the indentation width in characters. The default is 0 which means that the value returned by tabWidth() is actually used.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			isModified()
+			</term><listitem><para>Returns 1 if the text has been modified.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			isReadOnly()
+			</term><listitem><para>Returns 1 if the text edit is read-only.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			isRedoAvailable()
+			</term><listitem><para>Returns 1 if there is something that can be redone.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			isUndoAvailable()
+			</term><listitem><para>Returns 1 if there is something that can be undone.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			isUtf8()
+			</term><listitem><para>Returns 1 if text is interpreted as being UTF8 encoded. The default is to interpret the text as Latin1 encoded.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			lines()
+			</term><listitem><para>Returns the number of lines of text.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			length()
+			</term><listitem><para>Returns the length of the text edit's text.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			tabIndents()
+			</term><listitem><para>Returns 1 if the tab key indents a line instead of inserting a tab character.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			tabWidth()
+			</term><listitem><para>Returns the tab width in characters.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			whitespaceVisibility()
+			</term><listitem><para>Returns the visibility of whitespace.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			ensureLineVisible()
+			</term><listitem><para>Ensures that the line number line is visible.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setAutoIndent(bool)
+			</term><listitem><para>If autoindent is 1 then auto-indentation is enabled.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setBackspaceUnindents(bool)
+			</term><listitem><para>If bool is 1, the backspace key will unindent a line rather then delete a character.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setEolMode(eolMode)
+			</term><listitem><para>Sets the end-of-line mode to eolMode.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setEolVisibility(eolVisibility)
+			</term><listitem><para>If eolVisibility is 1 then ends-of-lines are made visible.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setFolding(bool)
+			</term><listitem><para>Sets the folding style for margin 2 to fold.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentationGuidesBackgroundColor(color)
+			</term><listitem><para>Set the background color of indentation guides.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentationGuidesForegroundColor(color)
+			</term><listitem><para>Set the foreground color of indentation guides.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginsForegroundColor(color)
+			</term><listitem><para>Set the foreground color of all margins.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginsBackgroundColor(color)
+			</term><listitem><para>Set the background color of all margins.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarkerBackgroundColor(color,mnr)
+			</term><listitem><para>Set the background color of the marker mnr. If mnr is -1 then the color of all markers is set.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarkerForegroundColor(color,mnr)
+			</term><listitem><para>Set the foreground color of the marker mnr. If mnr is -1 then the color of all markers is set.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMatchedBraceBackgroundColor(color)
+			</term><listitem><para>Set the background color used to display matched braces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMatchedBraceForegroundColor(color)
+			</term><listitem><para>Set the foreground color used to display matched braces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setUnmatchedBraceBackgroundColor(color)
+			</term><listitem><para>Set the background color used to display unmatched braces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setUnmatchedBraceForegroundColor(color)
+			</term><listitem><para>Set the foreground color used to display unmatched braces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentationGuides(indentationsGuides)
+			</term><listitem><para>Enables or disables the display of indentation guides.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentationsUseTabs(bool)
+			</term><listitem><para>If bool is 1 then indentations are created using tabs and spaces, rather than just spaces.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentationWidth(width)
+			</term><listitem><para>Sets the indentation width. If width is 0 then the value returned by tabWidth() is used.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setModified(bool)
+			</term><listitem><para>Sets the modified state of the text edit. Note that it is only possible to clear the modified state. Attempts to set the modified state are ignored.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setReadOnly(bool)
+			</term><listitem><para>Sets the read-only state of the text edit.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setTabIndents(bool)
+			</term><listitem><para>If bool is 1 then the tab key will indent a line rather then insert a tab character.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setTabWidth(width)
+			</term><listitem><para>Sets the tab width.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setUtf8(bool)
+			</term><listitem><para>Sets the current text encoding. If bool is 1 then UTF8 is used, otherwise Latin1 is used.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setWhitespaceVisibility(bool)
+			</term><listitem><para>Sets the visibility of whitespace.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			unindent(line_number)
+			</term><listitem><para>Decreases the indentation of line line_number.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			zoomTo(percentage)
+			</term><listitem><para>Zooms the text by making the base font size given points and recalculating all font sizes.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			convertEol(eolMode)
+			</term><listitem><para>All the lines of the text have their end-of-lines converted to given mode.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			markerDeleteHandle(int_handle)
+			</term><listitem><para>Delete the marker instance with the given marker handle.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			indentation(line_number)
+			</term><listitem><para>Returns the number of characters by which the given line is indented.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			lineLength(line_number)
+			</term><listitem><para>Returns the length of the given line, or -1 if there is no such line.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			marginLineNumbers(margin_number)
+			</term><listitem><para>Returns 1 if line numbers are enabled for the given margin.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			marginSensitivity(margin_number)
+			</term><listitem><para>Returns 1 if the given margin is sensitive to mouse clicks.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			marginWidth(margin_number)
+			</term><listitem><para>Returns the width in pixels of the given margin.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			markerDefine(symbol,margin_number)
+			</term><listitem><para>Define a marker using the given symbol with the given marker number. If mnr is -1 then the marker number is automatically allocated.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			markerLine(marker_handle)
+			</term><listitem><para>Return the line number that contains the marker instance with the given marker handle.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setCursorPosition(line,index)
+			</term><listitem><para>Sets the cursor to the given line at the given position index.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setIndentation(line_number,string)
+			</term><listitem><para>Sets the indentation of line line_number to match the given string.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginLineNumbers(margin_number,bool)
+			</term><listitem><para>Enables or disables, according to second arg, the display of line numbers in the given margin.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginSensitivity(margin_number,bool)
+			</term><listitem><para>Enables or disables, according to second arg, the sensitivity of the given margin to mouse clicks.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginWidth(margin_number,width)
+			</term><listitem><para>Sets the width of the given margin to the given pixels. If the width of a margin is 0 then it is not displayed.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			insert(string,line,index)
+			</term><listitem><para>Inserts text at the given position, or at the current position if none is supplied. The function must be given at least 1 argument.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			find(string,isRegExp,isCaseSensitive,isWholeWord,wrap,forward,line,index)
+			</term><listitem><para>Finds a string in the current view. The function must be given at least 1 argument.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			currentLine()
+			</term><listitem><para>Returns current line.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			currentColumn()
+			</term><listitem><para>Returns current index.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			selection()
+			</term><listitem><para>Returns current selection as Selection object.
+				  A selection object has four attributes: 
+				  lineFrom, lineTo, columnFrom and columnTo.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+			<varlistentry>
+				<term> selectedText() </term>
+				<listitem>
+					<para>
+						Returns selected text.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term> moveCursor(int left, int down) </term>
+				<listitem>
+					<para>
+						Moves cursor, negative values can also be used.
+					</para>
+				</listitem>
+			</varlistentry>
+				  <varlistentry>
+				  <term>
+			line(line_number)
+			</term><listitem><para>Returns line at the given line number.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setMarginStringWidth(margin_number,string)
+			</term><listitem><para>Sets the margin margin_number's width with the given string.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			setSelection(from_line,from_index,to_line,to_index)
+			</term><listitem><para>Sets selection.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			insertCommand(shell_command)
+			</term><listitem><para>Inserts output of a shell command.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			filter(shell_command)
+			</term><listitem><para>Filters selection with a shell command.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+				  <varlistentry>
+				  <term>
+			fileName()
+			</term><listitem><para>Retrieves the file name of the view.
+				  </para>
+			
+				 </listitem>
+			
+				 </varlistentry>
+			
+				 </variablelist>
+			</sect2>
+		</sect1>
+	</chapter>
+</book>
+

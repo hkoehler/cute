@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>				CUTE Commands
+			</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="			CUTE User-friendly Text Editor
+		"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="			Editing
+		"
+HREF="c44.html"><LINK
+REL="PREVIOUS"
+TITLE="			Editing
+		"
+HREF="c44.html"><LINK
+REL="NEXT"
+TITLE="			Searching and Replacing
+		"
+HREF="c149.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>CUTE User-friendly Text Editor</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c44.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 3. Editing</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="c149.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN69"
+>3.2. CUTE Commands</A
+></H1
+><P
+>				Each CUTE command starts with a specific string; for example if you want to execute 
+				an external program, you have to type :!program. &ldquo;:!&rdquo; is the start 
+				string, indicating that command is an execution command (nobody dies ;-)). A % is substituted 
+				by the file name of the current document. More CUTE commands are listed below:
+			</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>!</DT
+><DD
+><P
+>						filter selected text with the given program; for example &ldquo;!indent&rdquo; 
+						causes the selected text to be indented.
+					</P
+></DD
+><DT
+>&gt;</DT
+><DD
+><P
+>						insert output of a given program at the cursor position.
+					</P
+></DD
+><DT
+>/</DT
+><DD
+><P
+>						search text forward. Possible arguments are: re, cs, word, wrap. If one of 
+						these is given the search will match a regular expression, will be 
+						case sensitive, will search a word or will wrap around lines. 
+						For example: &ldquo;/switch(.*) re&rdquo;, will find a switch statement in C.
+					</P
+></DD
+><DT
+>?</DT
+><DD
+><P
+>						same as above, but search backward.
+					</P
+></DD
+><DT
+>:</DT
+><DD
+><P
+>						jump to given line number. For example &quot;:22&quot;
+					</P
+></DD
+><DT
+>:py</DT
+><DD
+><P
+>							run a python command. For example &quot;:py clear()&quot; 
+							will clear current view, as clear() is a built-in CUTE/python function.
+						</P
+></DD
+><DT
+>:pythony</DT
+><DD
+><P
+>						same as above.
+					</P
+></DD
+><DT
+>:s</DT
+><DD
+><P
+>							this is a sed-like substitution command. Options are g or gc. 
+							g will replace all found strings, gc will replace all found strings, 
+							but the user must confirm each substitution. Without an option 
+							CUTE will replace only the first occurrence. For example: &ldquo;:s/true/TRUE gc&rdquo;
+						</P
+></DD
+><DT
+>:q</DT
+><DD
+><P
+>						exit CUTE.
+					</P
+></DD
+><DT
+>:quit</DT
+><DD
+><P
+>						same as above.
+					</P
+></DD
+><DT
+>:w</DT
+><DD
+><P
+>						save current file.
+					</P
+></DD
+><DT
+>:write</DT
+><DD
+><P
+>						same as above.
+					</P
+></DD
+><DT
+>:e</DT
+><DD
+><P
+>						open given file. For example &quot;:e /home/heiko/CUTE/cute.cpp&quot;.
+					</P
+></DD
+><DT
+>:edit</DT
+><DD
+><P
+>						same as above.
+					</P
+></DD
+><DT
+>:wq</DT
+><DD
+><P
+>						save all files and exit.
+					</P
+></DD
+><DT
+>:x</DT
+><DD
+><P
+>						same as above.
+					</P
+></DD
+><DT
+>:close</DT
+><DD
+><P
+>						close current file.
+					</P
+></DD
+><DT
+>:cd</DT
+><DD
+><P
+>						change current directory. For example &ldquo;:cd /home/heiko/CUTE&rdquo;.
+					</P
+></DD
+><DT
+>:char</DT
+><DD
+><P
+>						insert the given integer value as a character at the current cursor position. For example &ldquo;:char 190&rdquo;, will insert 3/4 char.
+					</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c44.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c149.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Editing</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c44.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Searching and Replacing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

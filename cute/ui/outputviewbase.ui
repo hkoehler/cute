@@ -1,0 +1,129 @@
+<!DOCTYPE UI><UI>
+<class>OutputViewBase</class>
+<author>Heiko Köhler</author>
+<widget>
+    <class>QWidget</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>Form1</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>651</width>
+            <height>537</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>Output</string>
+    </property>
+    <property>
+        <name>layoutMargin</name>
+    </property>
+    <property>
+        <name>layoutSpacing</name>
+    </property>
+    <vbox>
+        <property stdset="1">
+            <name>margin</name>
+            <number>0</number>
+        </property>
+        <property stdset="1">
+            <name>spacing</name>
+            <number>0</number>
+        </property>
+        <widget>
+            <class>QTabWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>form1</cstring>
+            </property>
+            <property stdset="1">
+                <name>tabShape</name>
+                <enum>Rounded</enum>
+            </property>
+            <property>
+                <name>layoutMargin</name>
+            </property>
+            <property>
+                <name>layoutSpacing</name>
+            </property>
+            <widget>
+                <class>QWidget</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>stdoutTab</cstring>
+                </property>
+                <attribute>
+                    <name>title</name>
+                    <string>Stdout</string>
+                </attribute>
+                <vbox>
+                    <property stdset="1">
+                        <name>margin</name>
+                        <number>0</number>
+                    </property>
+                    <property stdset="1">
+                        <name>spacing</name>
+                        <number>0</number>
+                    </property>
+                    <widget>
+                        <class>QListBox</class>
+                        <property stdset="1">
+                            <name>name</name>
+                            <cstring>stdoutListBox</cstring>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget>
+                <class>QWidget</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>stderrTab</cstring>
+                </property>
+                <attribute>
+                    <name>title</name>
+                    <string>Stderr</string>
+                </attribute>
+                <vbox>
+                    <property stdset="1">
+                        <name>margin</name>
+                        <number>0</number>
+                    </property>
+                    <property stdset="1">
+                        <name>spacing</name>
+                        <number>0</number>
+                    </property>
+                    <widget>
+                        <class>QListBox</class>
+                        <property stdset="1">
+                            <name>name</name>
+                            <cstring>stderrListBox</cstring>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>stderrListBox</sender>
+        <signal>doubleClicked(QListBoxItem*)</signal>
+        <receiver>Form1</receiver>
+        <slot>stderrDoubleClicked(QListBoxItem*)</slot>
+    </connection>
+    <connection>
+        <sender>stdoutListBox</sender>
+        <signal>doubleClicked(QListBoxItem*)</signal>
+        <receiver>Form1</receiver>
+        <slot>stdoutDoubleClicked(QListBoxItem*)</slot>
+    </connection>
+    <slot access="protected">stderrDoubleClicked(QListBoxItem*)</slot>
+    <slot access="protected">stdoutDoubleClicked(QListBoxItem*)</slot>
+</connections>
+</UI>

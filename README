@@ -1,0 +1,3 @@
+This is CUTE, the CUTE User-friendly Text Editor. This dir contains all libs necessary
+to compile CUTE excluding QT and python.
+For installation info read INSTALL.

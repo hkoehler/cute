@@ -1,0 +1,38 @@
+#0  0x402fbf82 in ?? ()
+#1  0xbfffe458 in ?? ()
+#2  0x4000b060 in ?? ()
+#3  0xbfffe4d0 in ?? ()
+#4  0x080d9f66 in ShortcutsDlg (this=0x0, parent=0x0, 
+    name=0xbfffe418 "8äÿ¿p\n@@Ð\216)\b") at shortcutsdlg.cpp:34
+#5  0x080b7bb4 in API::initEnums (module=0xbfffe4d0) at py_buffer.cpp:246
+#6  0x080b9ba5 in API::setModified (self=0x8298ea8, args=0x1)
+    at py_buffer.cpp:383
+#7  0x0806d5ee in CUTE::initActions (this=0x811b5f0) at cute.cpp:407
+#8  0x40368639 in ?? ()
+#9  0x0811b5f0 in ProjectDialog (this=0x811b5f0, parent=0x80bb184, 
+    name=0xbfffe7d0 "\210\237N@", modal=false, fl=3221219312)
+    at ui/projectdialog.cpp:146
+#10 0x403683be in ?? ()
+#11 0x0811b5f0 in ProjectDialog (this=0x811b5f0, parent=0xbfffe7d0, 
+    name=0x271 <Address 0x271 out of bounds>, modal=64, fl=136548936)
+    at ui/projectdialog.cpp:146
+#12 0x4031b8f0 in ?? ()
+#13 0x0811b5f0 in ProjectDialog (this=0x81f4260, parent=0x8240388, 
+    name=0x81e94a0 "HÍ\v\b", modal=64, fl=1080993752)
+    at ui/projectdialog.cpp:146
+#14 0x4064ace4 in ?? ()
+#15 0x081f4260 in QLAYOUTSIZE_MAX ()
+#16 0x08240388 in QLAYOUTSIZE_MAX ()
+#17 0x081e94a0 in QLAYOUTSIZE_MAX ()
+#18 0x403d917a in ?? ()
+#19 0x406ea7d8 in ?? ()
+#20 0x081f4260 in QLAYOUTSIZE_MAX ()
+#21 0xbfffe8b8 in ?? ()
+#22 0x406817b3 in ?? ()
+#23 0x081f4260 in QLAYOUTSIZE_MAX ()
+#24 0x4031b76e in ?? ()
+#25 0x081e94a0 in QLAYOUTSIZE_MAX ()
+#26 0xbfffe970 in ?? ()
+#27 0x15263402 in ?? ()
+#28 0x38529c72 in ?? ()
+#29 0x0000003b in ?? ()

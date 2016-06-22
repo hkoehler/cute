@@ -1,0 +1,27 @@
+INSTALL for CUTE
+
+In order to compile CUTE yourself download the
+QextScintilla source code ( http://www.riverbankcomputing.co.uk ).
+In most cases the python libs and header files are already installed, 
+if not download the python source code from www.python.org.
+
+The PATH environment variable must include the QT bin dir, normally installed in /usr/lib/qt3/bin/, in order to find qmake.
+Make sure QTDIR contains the path to the QT installation
+( i.e. QTDIR=/usr/lib/qt3 under SuSE ) and QMAKESPEC contains the dir path
+to the qmake definitions (for example: QMAKESPEC=/usr/lib/qt3/mkspecs/linux-g++/ under SuSE).
+Compile the qscintilla libt.
+Make sure qmake is in your PATH. It is installed in $QTDIR/bin 
+where QTDIR is the install dir of QT.
+
+
+QextScintilla:
+		Go to the qt sub dir and type qmake qextscintilla.pro -o Makefile.
+		Type make.
+Python:
+		Type ./configure. After configure type make and than make install as root.
+
+Set QEXTSCINTILLADIR, PYTHON_INCLUDE_DIR and PYTHON_LIB_DIR
+in cute.pro.
+Type qmake cute.pro -o Makefile or simply ./configure.
+Now CUTE should compile correctly.
+Type install.

@@ -1,0 +1,436 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>AboutDlg</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>AboutDlg</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>5</x>
+            <y>0</y>
+            <width>418</width>
+            <height>366</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>4</width>
+            <height>0</height>
+        </size>
+    </property>
+    <property name="maximumSize">
+        <size>
+            <width>418</width>
+            <height>967</height>
+        </size>
+    </property>
+    <property name="baseSize">
+        <size>
+            <width>7</width>
+            <height>0</height>
+        </size>
+    </property>
+    <property name="palette">
+        <palette>
+            <active>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>197</red>
+                    <green>194</green>
+                    <blue>197</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>226</red>
+                    <green>224</green>
+                    <blue>226</blue>
+                </color>
+                <color>
+                    <red>98</red>
+                    <green>96</green>
+                    <blue>98</blue>
+                </color>
+                <color>
+                    <red>131</red>
+                    <green>129</green>
+                    <blue>131</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>246</red>
+                    <green>242</green>
+                    <blue>246</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>10</red>
+                    <green>95</green>
+                    <blue>137</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </active>
+            <disabled>
+                <color>
+                    <red>128</red>
+                    <green>128</green>
+                    <blue>128</blue>
+                </color>
+                <color>
+                    <red>197</red>
+                    <green>194</green>
+                    <blue>197</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>226</red>
+                    <green>222</green>
+                    <blue>226</blue>
+                </color>
+                <color>
+                    <red>98</red>
+                    <green>96</green>
+                    <blue>98</blue>
+                </color>
+                <color>
+                    <red>131</red>
+                    <green>129</green>
+                    <blue>131</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>246</red>
+                    <green>242</green>
+                    <blue>246</blue>
+                </color>
+                <color>
+                    <red>128</red>
+                    <green>128</green>
+                    <blue>128</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>10</red>
+                    <green>95</green>
+                    <blue>137</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </disabled>
+            <inactive>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>197</red>
+                    <green>194</green>
+                    <blue>197</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>226</red>
+                    <green>222</green>
+                    <blue>226</blue>
+                </color>
+                <color>
+                    <red>98</red>
+                    <green>96</green>
+                    <blue>98</blue>
+                </color>
+                <color>
+                    <red>131</red>
+                    <green>129</green>
+                    <blue>131</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>246</red>
+                    <green>242</green>
+                    <blue>246</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>10</red>
+                    <green>95</green>
+                    <blue>137</blue>
+                </color>
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </inactive>
+        </palette>
+    </property>
+    <property name="caption">
+        <string>About</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>PixmapLabel2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>100</horstretch>
+                            <verstretch>100</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QTextEdit">
+                    <property name="name">
+                        <cstring>textEdit1</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>&lt;b&gt;&lt;center&gt;CUTE User-friendly Text Editor&lt;\center&gt;
+&lt;center&gt;Version 0.2.8 &lt;\center&gt;
+&lt;center&gt;(C) Copyright 2004, Heiko Köhler et al.&lt;\center&gt;
+&lt;center&gt;mail@heikokoehler.de&lt;/center&gt; 
+&lt;center&gt;http://cute.sourceforge.net&lt;\center&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;center&gt;Icons  Copyright(C) 1998  by  Dean S. Jones &lt;\center&gt;
+&lt;center&gt;dean@gallant.com www.gallant.com/icons.htm&lt;\center&gt;&lt;/b&gt;</string>
+                    </property>
+                    <property name="wordWrap">
+                        <enum>WidgetWidth</enum>
+                    </property>
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>Layout2</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>Spacer8</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>PushButton1</cstring>
+                            </property>
+                            <property name="text">
+                                <string>OK</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>Spacer9</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="33758">789ced5dd972223b127defaf7074be754ce8b22f31310fc64b61bcbbbd4fcc8300836dbc8297c613f3ef9352a64451946a01ecdb44731565fa94a4d4923a4a4925e9fef563e5fc6077e5c75fdf062ff2e5a6b5d2ba96fd951fedd7fbfbe1bffff3afff7efb9ecb65564ad5956c35b792fbfe8f6fdfc5d94a6b0532fa3f8d1b165734f60cce927fdd62f2df323847fe17165735de31389f55581a5ca0f4e0c3622d0f7a1a574c7e605fe16c25d7babad2f14f14ce657295ab92965fb158fbc34f833bda1f0e18b79a6d1d3e6b708b70cee07651e30f8bb53cb16630a507c262f22f1b4ce9094e3f9f217992e4554dfa5033b845e95d5b4cf9393698f363c3737e560de6fc80c5e47f6a30e507d5af713e230bdaffc8e296c6eb0637c97fcf62ca4fc760ce6fd762f21f1a4cf985b6c5949f7d8339bf561eebf38e71a14ae93f184cf995070673feee2dd6e9cb0d83297f52d74f3e6bf37f6030e7ff8e7181cb7f6830c997db1693fc8ac11c3faf71b550a0f24badaf42b660fc8b16937fc360ae9f2b83b9fcbb8c2b5cbe8cc5d45ece0ce6f29d5a4ce533f22adcde36359626be3c3398e35f306e959b1a970de6f4a4c1141e3cc2c54c39aff1b1c53a3edc1a5c21ff67858b391bbe6f31853f3298c3ef594cfe0dc645cedf2de336b527f94b63596c73f9370de6f21f5a4ce13b06737fb141b894a5f8d03298f593b598fa93aac2a59c092f0706737a2f8c8b5c9ebac5549e3783a97d83aeef92b4fe7706b3ff21e32acb1b5a4ce11f0ca6f0b248b85ce4f2b52da6f26b7d96f3e522976fc762f2af19ccfc5cb398fc3d83b93f6932ae127f64c960e64fcf60aeaf5783b9be5a1653fd5e18cce96b7d969b289ff8b06d31a5f76830cbbf3698cbf36e30c993478cdb5cbf97166b79503198d3ab5a4cfdc3b9c15cbe278b297ddd1f55f2469e6c1b4cf2206731c9fb45b862cabb6a31e57fcd60b627371677b4bfe67ba55931edf9c4628a7f6e30c7dfb598e2670957b3dcbfd60de6fee7d2622a9f6e6fd582090f1b1653fdfd3298e243c962e2d78dc1dcffec332e7278dd9eaa2d99e5f6b56e31e557f347168c3fac5bacfda1c0b8c8ed616830b7f78cc5d4def20673fc7bc692e3e70ce6f6aaedb96c49c9e5b93698cbd3b598fc5f0d66fbadf3d72c344b949e908c25974fd777b3dd94accfa6c11cfe91f115f777cf06b3fc81c5646fdf0de6f6b54db895633ee8f15aab68e3f72da6f6230ce6f8ef1693fc57c2ad1cc77fb298e2170ce6f294189bf2e8febcd56e5d71fd537edaed1cd787b607ed22fa537eab84db2c1f5e0ce6fced5a4cfe0383b9fdbf594cf2338c4b1cffd162ca3f18ccededc9628aafdb73fbcac6ef5a4ce99f12bee2f440f3f1aa64b0e83136f29e1973fd80e6335636fb4391b1e4f2bc584cf1f38cb93e85ee5f3ba58ea96f5d9e4ec7e0c317c61d83976e11dd52778beb96ba5b5cb7d4dde2baa5ee16d72d75b7b86ea9bbc575b3e84e003e52347d0fa877aeb04b375f379dee440bf5d41657a223bad65de3d3c17737e2765c53a227eec4bd7808c878144fe259f4f9791203c6f41bc4ae9cbc84c61b4cc47fe5f06fe21ddd20106e60c325fb1d8cfdf647b913af3a0fe3e1fb09e406f3eb7fdf0f2f7d5add21b37ae217eaa22386e243ace2a35c4dff5dd37828d6c586b8f5c5d9c4776b18635ca31eba7ae2e7d9919f81d842dfb8f89e6870f86db19320bcfb31cef3fd6e89775fa9a697ed4eb33fbbee906fbb624f6b6d1fb5b18fff3a407c288ef05947edfce4f7c7f8fe06b5ac7ad513e4e39a38159d80ac33d108715ee8db4678ee514a5f972f3ccec89d59dd9d8b0b8c1117de172fd67928f1d2e627a9e434ae2e06b3ea0efbc28cc8a21e94cba146f2a89f02eab3856c547f0b888bf83ea7430c3174419450b71fa22c2a13bc3bf33953537eec8d6117ef9eade6bc50192407dffb78d79808d370a41bcc5b583a4a77d59052b96405df8da7635a8cffbd372bef500f1dec1bf7713802e21824345d1a86168644fe411bc35d890fe8a0eeca41de8d1c74e19ad933ca2fd687784a9833ec39e1066eb1efd232a0c732b6c405dcc1bd5f0ef26ec7577b2acc163c60fc47cecb133c076ab7017de0760f2ff00a6fccdc91ee76c47658aee01dfa93b2c49bb315f6e1170ca927860f5f2c87c548aa3b58b5fcf9801aac8956445db640f59f1f1816c383a0df20ef02f237c674e7c16dba91a9b2c3b0395ea7e0e1c824200594756ad8765e474d05c28897b156afc2f50232b6a0a16de88877e78e3cbd05647910dafb8dc5517551f7c957b90c691b4975073bd8137e20e304f2a983b381987ac5804db47fc851718a4f59fda204478bd331fabe7a5735733ecdac02ea5c626523ea864b63e98c7abc86bfaf1b0b335edf672121c86e7a51bc4b2a2bb41cbbb067fb07673e93e80e7b4bcd3950fd600d3995a056517b120ed0ea11e7d4d3153222fc33d6b6df86386b2332d5776b2fea70181a62645beae0eabdcee2eb1b0dc711f7149eab6e93ca0a8dd743edc5c88fd71dcee40e9073a0b9738ca3ff847c50da439d13f77ea2f6bac2612175e87ec0864cc53b9463469d0e1b31b2a770ec9c3326aa6f38b1695d8063143c2def74cc01db6fc5eba97407a77086e346b25b384783d09edd913ac085c8597b17cf3bbfeea6e21de6f79267005eb86646360a32cebc24e48ab64bdc3fcf2a2b543ed966a73d8dd61dd67e16c78ac43935eabf49579338c353fde629dbbb2fe01de4b8b56e39d269f09861cf2d3f697d0b62b9ee816795155a96275d96a978879acb8bace54d0d471f3d774a0e19377a4d857857880837177b87e52de8b6da002fd4b768c77ba588bc24ae6f64792346bf33e80eebbfac79b7059530ff48ddf5c43ab43567d4fc2c07d5f45c5032706caae267211f116e4ebc9382c7d7e123c867b6855b32427af2fad6f23e4d77d836ae79b412caeb48dd8d38a379e39a8d47396c3b3b642fc5507e81bd63399e0ccd2bb6101a833ac71669ebdbcc38e6212b2476a47cb7ee90311dbd0e5956f33334799df43da696738b5ad76354d98ab031f31a673e91eec2e333ef2ec2fba069ea5bb629dfd09d4596e1efa40f3c689b974a7702e495c81acea931a68c5c1789ac8ba29ee7c5f36e0ef68ee538e2e3b83b626d375d7d73ddb27d75aeb7269225bb2edd894b1c653652f32e036de29c1a27e2bfdbd3d5264ada556355f1535eff16bc3b73cd1fd2d537877de5399eeb3b4732de6dd31a4a6879bcb4baf3adffab674d5c478d1263eab3a4573787b0131166cef62e9277ce117d9afab6a169963003efd020bd39fbcc627a7b475cb163cc0f9ca715a6ab4dbdc2a2389cc399fae7f3ae1fc53ba8a8568c7f2365a7d6dd8cbc1bcd131d12b05e64c8ccdaa53b792b567d6b911f38d28ff87210533a903d647147de4584f9027b876da8aae60fb019232395eee4fdacf64e3e986f06e9ca1aae3b2c65c7704e7d0740dd1d4eaf3b94f7261f654f467c8ffb22deedeabd23713252e90e6546eda7899525cdd76307efdccea1bb26d42ce7d40ca12dfbb3edf48afd6af425f62ea18c54ba9b4d96e881afdce9643b742771565ed68ed754e4e07377e9cd9f7733e4e5cb7427dee088e66ff3d2ddf8dc8ed644a2c688f3705f33bf4b28e30b74279e65577f27a8fbcb9d4e7638ef24f2ce67ef62d644e6e1bec6de2594f189bab36eb413aa31cf3e1379d7e235c8afe5dd1f60ef4470d7e00c29b978375a53d1f6eea79c619499a88c7f0aefccdedc2dedbc71eda5939d9477516b91f3707f88bd6bf00efe81184045be8ced079b13ef602760ef865f62ef3c9feea61c27feeebc0bf8bec0dddcc799af7fcb38d3d767867f7f4b2ce777e5dde4fc4eadf5d4e7b9ae22df787e57b1f3bbf7e538f3736421f7fa867be964bbd655c475c0defdfa64ddfd19f62e7c3d7348dfe8e6a43bf3addbd8bb9ab89b653d334119ff58dee9ef0873e41db6850fbb3fccec11fb7cdefd01f3bbf050308ce21d14b0256ec36bf0bdeb3b82ec8835fff73bb99a6657eda493576243d6a4f344c224efa6acab05e41d7f5774fbaa13091793fb349cbc5b1bdb23a64ead1666619e68eb13cd1b4eff79d9bbc142f2ee55f8cee64ec8a075cf89afbbceefe6b7ea2c81b577a849b93e4309406e880fd195356788f9eecf6c44ed9d9d4f7d4f21cbb1efe4509d8151cc0addcb8dad914e7727e69d68c9cdd1da0aea2f27bd197aa15ba811779d2102f62eeedbb6cbc93aefdb8a39e796b8bebf867703d81455b80c890fd89fea756b39a159f73e31b45043738647edcf9429bfea8ee5e0449d5197db70ea0c6178a7f666ec88869c72579a3d1797f0ccecf4f59d5256ccfe69b7e3b3b31e4cf844eeaddd0b9c9fbb8d4bc721a9a5ce12415bee46ec351a3f298ced6cbab4f84471cc2ebe98fc7e39efdc4eee713f121233724ffbaeb8f68d35b3e264cafcdf626fb92a8ee5554c291bb3ea4eefb8aa8b9de83debb1527c758d7dc0dfabbb7df71eb228ddc1b93cf0edd1ac217ba61b3f1c421be5c4ec891ffb1aa25adac47c26414adda8f36a49ddefc33bf132face30e91b7dfece67f3d458b33bcd5853add1a83b1f64e819e291a3f350f68e86ba3c4a9f161ceb2f6217e0387d9730c7f3d4dd4c5f57e54ffb5d3da41f8a3bf72a8f454d9ef058f3439ea6651ece0ecef47d2b7b71d65273c67f5b401d7653a675a9c7295ef8d9bb14727e13def1ee3f5d1f6163d038dde188e5c87c4347d3d795a9e65d18654d9f4548b0df4598b3e2567b908a79e2cddce0241d6772bea2be834ed9cba975d7b6f3a646d879c258dda9db36f60cf784ba654526bf2d00d6c5b5ba0309f99ae0fc973ebf3de29e87232ce7fd091369f5e099d9ea3cfb9d58d66fc13b7d727e74874bc83a51a23b3a9ae6ec2adfaf92487ba8f55d7dbf91da539d70c704ef7a1b69af8ef3b5045ae795307556f968ba538263d266b251f3902588739e1d7b4fc53b2d896edba8e1884368eeadc7dfb1227ab2a6d7527251ab292179be18db81a3ee633882c8f8c2b4506dd165885d48e7e031c095c6e4ac38a993990959b1f32cac832cdd4b35162fa40e92de4985d624a3c79cc4bd2e6483b764da90ea96c61bd4584ecde99273ce6aa2efd31eddfdb405cf72df8c5cf4dd809cb27896f73a84b911d171a223a9835d78d563555d6366cc0b0d99931167e5236485dd277619bee663ef13f346e71346f1e42cba438dc8a2d6c89ae69fe253469c20237ba636f5fd5905d8c11eb6abefd3cca29d4bbdbfccf26854028ff70fd761a8d6fdd09dcb92be57c8e370cacef5d38e4b39bd575fdd7a7ae75df03eb12db3b6c138e4ae2b2b2d5a967a7711dcd9675b29598c70df905699f2fecc5b59161d1c77aee1d8710d7bd16331d477d676f8e9223ed6366e28f6706c39a5ed1103d4cca8f71cdd7cd8b0faf27c7e4aaba56957c1467735f8d2390bd47883d7592954c4aa81afb6c764d9f1e624a7c86f741be764faca3784ab53dc5b2ba55ae3caa276729a5dabfac65ae514cae1fb2cfab75d7d6ad274e0d5ee5ff4df2b392ab92da97c88bb1d2fcac9ad50f9fedf717f2faa67f6e52da9bc64bf33f3cee6b00779ec1beff45db5c43974b282f80e76203ffb588fd351f75556a021fcb7fcd659a338ff4b7ec766541ace7b9c83f73cf3ddd651b60f7b6013fe79ec1ee8a784f7463b7ec3d29ae99e76baab56fa1e503b923e63670bec223feccde0724b563f279d4572cbff3fc2e2baa5ee16d72d75b7b86ea9bbc5754bdd2dae5bea6e71dd52778bebbeffef9fdffe0f4a17747c</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>PushButton1</sender>
+        <signal>clicked()</signal>
+        <receiver>AboutDlg</receiver>
+        <slot>reject()</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

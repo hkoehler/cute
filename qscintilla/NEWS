@@ -1,0 +1,57 @@
+v1.3 9th May 2004
+	Merged Scintilla v1.60.  Added the QextScintillaDocument and
+	QextScintillaLexerPer classes.  Added QextScintillaBase::pool(),
+	QextScintilla::document(), QextScintilla::setDocument(),
+	QextScintilla::recolor(), QextScintilla::setCaretForegroundColor(),
+	QextScintilla::setCaretWidth(), QextScintilla::setCaretLineVisible(),
+	QextScintilla::setCaretLineBackgroundColor(),
+	QextScintilla::setSelectionForegroundColor() and
+	QextScintilla::setSelectionBackgroundColor().
+
+v1.2 16th August 2003
+	Merged Scintilla v1.54.
+
+v1.1 23rd May 2003
+	Merged Scintilla v1.53.  Added the QextScintillaLexerHTML and
+	QextScintillaLexerSQL classes.  By default the C++ lexer now folds
+	preprocessor blocks (to match the default SciTE properties file rather
+	than the code).  Added GlobalClass as a style of the C++ lexer (using
+	keyword set 4).  The WhiteSpace style in all existing lexers is now
+	deprecated and Default should be used instead.  Added
+	QextScintillaLexerCPP::foldAtElse(),
+	QextScintillaLexerCPP::setFoldAtElse(),
+	QextScintilla::modificationAttempted() and
+	QextScintillaBase::SCN_MODIFYATTEMPTRO().
+
+v1.0 26th April 2003
+	Merged Scintilla v1.50, 1.51 and v1.52.  Added the QextScintillaAPIs,
+	QextScintillaCommand, QextScintillaCommandSet, QextScintillaMacro and
+	QextScintillaPrinter classes.  Added autoCompleteFromAPIs(),
+	autoCompleteFromDocument(), autoCompletionSource(),
+	autoCompletionThreshold(), setAutoCompletionAPIs(),
+	setAutoCompletionFillups(), setAutoCompletionSource(),
+	setAutoCompletionThreshold(), callTip(), callTipsVisible(),
+	clearRegisteredImages(), registerImage(), setCallTipsAPIs(),
+	setCallTipsBackgroundColor(), setCallTipsVisible(),
+	ensureCursorVisible(), lineAt(), resetFoldMarginColors(),
+	setFoldMarginColors(), standardCommands() to QextScintilla.  Added
+	setDefaultFont() to QextScintillaLexer.  QextScintilla.markerDefine()
+	now takes a QPixmap rather than a string encoded XPM image.  Added
+	QSCINTILLA_VERSION, QSCINTILLA_VERSION_STR and QSCINTILLA_BUILD.
+
+v0.3 11th December 2002
+	Added drag'n'drop support.  Merged Scintilla v1.49.  Added the
+	QextScintilla.markerDefine() overload that handles XPM pixmaps.  Added
+	support for different folding styles, brace matching, automatic
+	indentation, end-of-line characters and whitespace visibility to
+	QextScintilla.  Completed the Unicode support.  Added full i18n support
+	and German translations.
+
+v0.2 24th October 2002
+	The beginnings of the documentation.  It will now build under Windows.
+	Added support for code folding, search & replace, zooming, undo/redo,
+	cut/copy/paste, indentation guides, margins, markers and the Python and
+	C++ lexers to QextScintilla.  Added support for wheel mice.
+
+v0.1 18th September 2002
+	The first release of the Qt port of Scintilla.

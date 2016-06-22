@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>			The User Interface
+		</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="			CUTE User-friendly Text Editor
+		"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE=" Overview "
+HREF="c10.html"><LINK
+REL="NEXT"
+TITLE="			Editing
+		"
+HREF="c44.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>CUTE User-friendly Text Editor</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c10.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="c44.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN18"
+></A
+>Chapter 2. 			The User Interface
+		</H1
+><P
+>			CUTE's user interface is made up of a main window with some 
+			docklets and an area for child views. A child view is a 
+			scintilla text widget, which can load a file, highlight source 
+			code, fold text, auto-complete text and so on. Only one instance 
+			of a file can be loaded at a time, to avoid overwriting previously 
+			changed files. There is a command box for running CUTE and shell commands. 
+			Available commands can be listed by pulling the list box down; it 
+			is also capable of auto-completion in the same way. CUTE commands 
+			will be described in detail later.
+		</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN21"
+>2.1. Dialogs</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN23"
+>2.1.1. Options Dialog</A
+></H2
+><P
+>				The most important options can be set with the options dialog. 
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN26"
+>2.1.2. Shortcuts Dialog</A
+></H2
+><P
+>				Each shortcut can be set using this dialog. On double-clicking 
+				on a shortcut, a little dialog will be shown. Just type in the 
+				new key sequence. If the new shortcut is unique and not part of 
+				another one it will be accepted by the shortcut dialog. Press 
+				the OK button to confirm the new shortcut, or Cancel to undo 
+				the alteration. 
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN29"
+>2.1.3. Find Dialog</A
+></H2
+><P
+>				Searching for a string or a regular expression is done with 
+				the find dialog. After the first occurrence is found, 
+				the &ldquo;Find Next&rdquo; and &ldquo;Find Previous&rdquo; 
+				commands can be used to repeat the search.
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN32"
+>2.1.4. Replace Dialog</A
+></H2
+><P
+>				Replacing one or more strings is done with the replace dialog. 
+				The user has to confirm each substitution (unless the &ldquo;Replace 
+				All&rdquo; or &ldquo;Replace in Selection&rdquo; button is pressed, 
+				when no confirmation is needed).
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN35"
+>2.1.5. Find in Files Dialog</A
+></H2
+><P
+>				This dialog is a front end for grep. The search results are displayed 
+				in the search docklet with line numbers; you can double-click a result to jump to that line.
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN38"
+>2.1.6. Save Dialog</A
+></H2
+><P
+>				When CUTE exits or a Project is closed, if necessary a Save dialog will be shown. Any unsaved modified files are listed 
+				and the user can (de)select those he wishes to save.
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN41"
+>2.1.7. Project Options Dialog</A
+></H2
+><P
+>				Called from the Project &#62; Options menu, this dialog allows a Project to be configured. 
+				In the General tab you can set the working directory of a Project and Select, Add or Delete a configuration.
+				The selected configuration can be modified in the Environment and Commands sections.
+				The project's files are listed in the Files section. 
+				Note that all file paths are displayed relative to the directory containing the project file.
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c10.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c44.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Overview</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Editing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,944 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>			Programming CUTE
+		</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="			CUTE User-friendly Text Editor
+		"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE=" Creating Projects "
+HREF="x230.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>CUTE User-friendly Text Editor</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x230.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+>&nbsp;</TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN234"
+></A
+>Chapter 7. 			Programming CUTE
+		</H1
+><P
+>			The most important feature of CUTE is the built-in python interpreter. It is responsible for configuring and extending CUTE. There are tasks which a user will wish to automate in a text editor. One way to do this is to record a macro once and execute it several times. The alternative is to write a python script using CUTE functions.
+		</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN237"
+>7.1. The CUTE/python API</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN239"
+>7.1.1. General Functions</A
+></H2
+><P
+>					General functions are defined in the cute python module.
+				</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>load(filename)</DT
+><DD
+><P
+>Load a file into the editor.
+				  </P
+></DD
+><DT
+>inputInteger(text)</DT
+><DD
+><P
+>Get an integer value from the user via a dialog.
+				  </P
+></DD
+><DT
+>inputText(text)</DT
+><DD
+><P
+>Get a string from the user via a dialog.
+				  </P
+></DD
+><DT
+>message(text)</DT
+><DD
+><P
+>Show a message dialog.
+				  </P
+></DD
+><DT
+>question(text)</DT
+><DD
+><P
+>Show a message dialog asking a question with yes and no button.
+				  </P
+></DD
+><DT
+>getOpenFileName()</DT
+><DD
+><P
+>Show an open file dialog and returns file name. You can also use a filter. For example: getOpenFileName(&ldquo;*.cpp&rdquo;).
+				  </P
+></DD
+><DT
+>getExistingDirectory()</DT
+><DD
+><P
+>Show an open dir dialog and returns dir name.
+				  </P
+></DD
+><DT
+>loadSession(filename)</DT
+><DD
+><P
+>Load a previously-saved session called filename.
+				  </P
+></DD
+><DT
+>viewList()</DT
+><DD
+><P
+>Retrieve list containing all views.
+				  </P
+></DD
+><DT
+>activateView(view)</DT
+><DD
+><P
+>The given view will become the current one.
+				  </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN283"
+>7.1.2. Configuration Functions</A
+></H2
+><P
+>			These functions are defined in the config module.
+				 </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>addRecentFile(filename)</DT
+><DD
+><P
+>Add an item to the recent file menu.
+				  </P
+></DD
+><DT
+>addBookmark(name,line_number)</DT
+><DD
+><P
+>Add an item to the bookmark menu.
+				  </P
+></DD
+><DT
+>addTool(name,command)</DT
+><DD
+><P
+>Add an item to the tools menu.
+				  </P
+></DD
+><DT
+>addPythonTool(command)</DT
+><DD
+><P
+>Add an item to the tools menu, after the command has been created with createCommand()
+				  </P
+></DD
+><DT
+>setCurrentDir()</DT
+><DD
+><P
+>Set working directory.
+				  </P
+></DD
+><DT
+>setMainWidgetGeometry(x,y,width,height)</DT
+><DD
+><P
+>Set main window geometry: width, height and position.
+				  </P
+></DD
+><DT
+>map(command,shortcut)</DT
+><DD
+><P
+>Map an action to a shortcut.
+				  </P
+></DD
+><DT
+>createCommand(function,name)</DT
+><DD
+><P
+>creates a new command implemented in function with the given name; it can be bound to a shortcut and inserted into a menu
+				  </P
+></DD
+><DT
+>Color(red,green,blue)</DT
+><DD
+><P
+>Construct new color object.
+				  </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN323"
+>7.1.3. Scintilla Functions</A
+></H2
+><P
+>			Scintilla functions are defined in the cute module.
+				 </P
+><P
+>			These functions can be called with or without a view object: for example it is possible to call my_view.clear() in order to clear a certain view or just clear() in order to clear the current view.
+				 </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>clear()</DT
+><DD
+><P
+>Deletes all the text in the text edit.
+				  </P
+></DD
+><DT
+>copy()</DT
+><DD
+><P
+>Copies selected text to the clipboard.
+				  </P
+></DD
+><DT
+>cut()</DT
+><DD
+><P
+>Copies selected text to the clipboard and then deletes the text.
+				  </P
+></DD
+><DT
+>foldAll()</DT
+><DD
+><P
+>If any lines are currently folded then they are all unfolded. Otherwise all lines are folded. This has the same effect as clicking in the fold margin with the shift and control keys pressed.
+				  </P
+></DD
+><DT
+>paste()</DT
+><DD
+><P
+>Pastes text from the clipboard into the text edit at the current cursor position.
+				  </P
+></DD
+><DT
+>undo()</DT
+><DD
+><P
+>Undo the last change or sequence of changes.
+				  </P
+></DD
+><DT
+>redo()</DT
+><DD
+><P
+>Redo previously-Undone changes or sequences of changes.
+				  </P
+></DD
+><DT
+>selectToMatchingBrace()</DT
+><DD
+><P
+>If the cursor is either side of a brace character then move it to the position of the corresponding brace and select the text between the braces.
+				  </P
+></DD
+><DT
+>zoomIn()</DT
+><DD
+><P
+>Zooms in on the text by making the base font size one point larger and recalculating all font sizes.
+				  </P
+></DD
+><DT
+>zoomOut()</DT
+><DD
+><P
+>Zooms out on the text by making the base font size range points smaller and recalculating all font sizes.
+				  </P
+></DD
+><DT
+>beginUndoAction()</DT
+><DD
+><P
+>Mark the beginning of a sequence of actions that can be undone by a single call to undo().
+				  </P
+></DD
+><DT
+>endUndoAction()</DT
+><DD
+><P
+>Mark the end of a sequence of actions that can be undone by a single call to undo().
+				  </P
+></DD
+><DT
+>autoIndent()</DT
+><DD
+><P
+>Returns 1 if auto-indentation is enabled.
+				  </P
+></DD
+><DT
+>backspaceUnindents()</DT
+><DD
+><P
+>Returns 1 if the backspace key unindents a line instead of deleting a character.
+				  </P
+></DD
+><DT
+>braceMatching()</DT
+><DD
+><P
+>Returns the brace matching mode.
+				  </P
+></DD
+><DT
+>eolMode()</DT
+><DD
+><P
+>Returns the end-of-line mode.
+				  </P
+></DD
+><DT
+>eolVisibility()</DT
+><DD
+><P
+>Returns the visibility of end-of-lines.
+				  </P
+></DD
+><DT
+>findNext()</DT
+><DD
+><P
+>Find the next occurrence of the string found using findFirst().
+				  </P
+></DD
+><DT
+>folding()</DT
+><DD
+><P
+>Returns the current folding style.
+				  </P
+></DD
+><DT
+>hasSelectedText()</DT
+><DD
+><P
+>Returns 1 if some text is selected.
+				  </P
+></DD
+><DT
+>indentationGuides()</DT
+><DD
+><P
+>Returns 1 if the display of indentation guides is enabled.
+				  </P
+></DD
+><DT
+>indentationsUseTabs()</DT
+><DD
+><P
+>Returns 1 if indentations are created using tabs and spaces, rather than just spaces.
+				  </P
+></DD
+><DT
+>indentationWidth()</DT
+><DD
+><P
+>Returns the indentation width in characters. The default is 0 which means that the value returned by tabWidth() is actually used.
+				  </P
+></DD
+><DT
+>isModified()</DT
+><DD
+><P
+>Returns 1 if the text has been modified.
+				  </P
+></DD
+><DT
+>isReadOnly()</DT
+><DD
+><P
+>Returns 1 if the text edit is read-only.
+				  </P
+></DD
+><DT
+>isRedoAvailable()</DT
+><DD
+><P
+>Returns 1 if there is something that can be redone.
+				  </P
+></DD
+><DT
+>isUndoAvailable()</DT
+><DD
+><P
+>Returns 1 if there is something that can be undone.
+				  </P
+></DD
+><DT
+>isUtf8()</DT
+><DD
+><P
+>Returns 1 if text is interpreted as being UTF8 encoded. The default is to interpret the text as Latin1 encoded.
+				  </P
+></DD
+><DT
+>lines()</DT
+><DD
+><P
+>Returns the number of lines of text.
+				  </P
+></DD
+><DT
+>length()</DT
+><DD
+><P
+>Returns the length of the text edit's text.
+				  </P
+></DD
+><DT
+>tabIndents()</DT
+><DD
+><P
+>Returns 1 if the tab key indents a line instead of inserting a tab character.
+				  </P
+></DD
+><DT
+>tabWidth()</DT
+><DD
+><P
+>Returns the tab width in characters.
+				  </P
+></DD
+><DT
+>whitespaceVisibility()</DT
+><DD
+><P
+>Returns the visibility of whitespace.
+				  </P
+></DD
+><DT
+>ensureLineVisible()</DT
+><DD
+><P
+>Ensures that the line number line is visible.
+				  </P
+></DD
+><DT
+>setAutoIndent(bool)</DT
+><DD
+><P
+>If autoindent is 1 then auto-indentation is enabled.
+				  </P
+></DD
+><DT
+>setBackspaceUnindents(bool)</DT
+><DD
+><P
+>If bool is 1, the backspace key will unindent a line rather then delete a character.
+				  </P
+></DD
+><DT
+>setEolMode(eolMode)</DT
+><DD
+><P
+>Sets the end-of-line mode to eolMode.
+				  </P
+></DD
+><DT
+>setEolVisibility(eolVisibility)</DT
+><DD
+><P
+>If eolVisibility is 1 then ends-of-lines are made visible.
+				  </P
+></DD
+><DT
+>setFolding(bool)</DT
+><DD
+><P
+>Sets the folding style for margin 2 to fold.
+				  </P
+></DD
+><DT
+>setIndentationGuidesBackgroundColor(color)</DT
+><DD
+><P
+>Set the background color of indentation guides.
+				  </P
+></DD
+><DT
+>setIndentationGuidesForegroundColor(color)</DT
+><DD
+><P
+>Set the foreground color of indentation guides.
+				  </P
+></DD
+><DT
+>setMarginsForegroundColor(color)</DT
+><DD
+><P
+>Set the foreground color of all margins.
+				  </P
+></DD
+><DT
+>setMarginsBackgroundColor(color)</DT
+><DD
+><P
+>Set the background color of all margins.
+				  </P
+></DD
+><DT
+>setMarkerBackgroundColor(color,mnr)</DT
+><DD
+><P
+>Set the background color of the marker mnr. If mnr is -1 then the color of all markers is set.
+				  </P
+></DD
+><DT
+>setMarkerForegroundColor(color,mnr)</DT
+><DD
+><P
+>Set the foreground color of the marker mnr. If mnr is -1 then the color of all markers is set.
+				  </P
+></DD
+><DT
+>setMatchedBraceBackgroundColor(color)</DT
+><DD
+><P
+>Set the background color used to display matched braces.
+				  </P
+></DD
+><DT
+>setMatchedBraceForegroundColor(color)</DT
+><DD
+><P
+>Set the foreground color used to display matched braces.
+				  </P
+></DD
+><DT
+>setUnmatchedBraceBackgroundColor(color)</DT
+><DD
+><P
+>Set the background color used to display unmatched braces.
+				  </P
+></DD
+><DT
+>setUnmatchedBraceForegroundColor(color)</DT
+><DD
+><P
+>Set the foreground color used to display unmatched braces.
+				  </P
+></DD
+><DT
+>setIndentationGuides(indentationsGuides)</DT
+><DD
+><P
+>Enables or disables the display of indentation guides.
+				  </P
+></DD
+><DT
+>setIndentationsUseTabs(bool)</DT
+><DD
+><P
+>If bool is 1 then indentations are created using tabs and spaces, rather than just spaces.
+				  </P
+></DD
+><DT
+>setIndentationWidth(width)</DT
+><DD
+><P
+>Sets the indentation width. If width is 0 then the value returned by tabWidth() is used.
+				  </P
+></DD
+><DT
+>setModified(bool)</DT
+><DD
+><P
+>Sets the modified state of the text edit. Note that it is only possible to clear the modified state. Attempts to set the modified state are ignored.
+				  </P
+></DD
+><DT
+>setReadOnly(bool)</DT
+><DD
+><P
+>Sets the read-only state of the text edit.
+				  </P
+></DD
+><DT
+>setTabIndents(bool)</DT
+><DD
+><P
+>If bool is 1 then the tab key will indent a line rather then insert a tab character.
+				  </P
+></DD
+><DT
+>setTabWidth(width)</DT
+><DD
+><P
+>Sets the tab width.
+				  </P
+></DD
+><DT
+>setUtf8(bool)</DT
+><DD
+><P
+>Sets the current text encoding. If bool is 1 then UTF8 is used, otherwise Latin1 is used.
+				  </P
+></DD
+><DT
+>setWhitespaceVisibility(bool)</DT
+><DD
+><P
+>Sets the visibility of whitespace.
+				  </P
+></DD
+><DT
+>unindent(line_number)</DT
+><DD
+><P
+>Decreases the indentation of line line_number.
+				  </P
+></DD
+><DT
+>zoomTo(percentage)</DT
+><DD
+><P
+>Zooms the text by making the base font size given points and recalculating all font sizes.
+				  </P
+></DD
+><DT
+>convertEol(eolMode)</DT
+><DD
+><P
+>All the lines of the text have their end-of-lines converted to given mode.
+				  </P
+></DD
+><DT
+>markerDeleteHandle(int_handle)</DT
+><DD
+><P
+>Delete the marker instance with the given marker handle.
+				  </P
+></DD
+><DT
+>indentation(line_number)</DT
+><DD
+><P
+>Returns the number of characters by which the given line is indented.
+				  </P
+></DD
+><DT
+>lineLength(line_number)</DT
+><DD
+><P
+>Returns the length of the given line, or -1 if there is no such line.
+				  </P
+></DD
+><DT
+>marginLineNumbers(margin_number)</DT
+><DD
+><P
+>Returns 1 if line numbers are enabled for the given margin.
+				  </P
+></DD
+><DT
+>marginSensitivity(margin_number)</DT
+><DD
+><P
+>Returns 1 if the given margin is sensitive to mouse clicks.
+				  </P
+></DD
+><DT
+>marginWidth(margin_number)</DT
+><DD
+><P
+>Returns the width in pixels of the given margin.
+				  </P
+></DD
+><DT
+>markerDefine(symbol,margin_number)</DT
+><DD
+><P
+>Define a marker using the given symbol with the given marker number. If mnr is -1 then the marker number is automatically allocated.
+				  </P
+></DD
+><DT
+>markerLine(marker_handle)</DT
+><DD
+><P
+>Return the line number that contains the marker instance with the given marker handle.
+				  </P
+></DD
+><DT
+>setCursorPosition(line,index)</DT
+><DD
+><P
+>Sets the cursor to the given line at the given position index.
+				  </P
+></DD
+><DT
+>setIndentation(line_number,string)</DT
+><DD
+><P
+>Sets the indentation of line line_number to match the given string.
+				  </P
+></DD
+><DT
+>setMarginLineNumbers(margin_number,bool)</DT
+><DD
+><P
+>Enables or disables, according to second arg, the display of line numbers in the given margin.
+				  </P
+></DD
+><DT
+>setMarginSensitivity(margin_number,bool)</DT
+><DD
+><P
+>Enables or disables, according to second arg, the sensitivity of the given margin to mouse clicks.
+				  </P
+></DD
+><DT
+>setMarginWidth(margin_number,width)</DT
+><DD
+><P
+>Sets the width of the given margin to the given pixels. If the width of a margin is 0 then it is not displayed.
+				  </P
+></DD
+><DT
+>insert(string,line,index)</DT
+><DD
+><P
+>Inserts text at the given position, or at the current position if none is supplied. The function must be given at least 1 argument.
+				  </P
+></DD
+><DT
+>find(string,isRegExp,isCaseSensitive,isWholeWord,wrap,forward,line,index)</DT
+><DD
+><P
+>Finds a string in the current view. The function must be given at least 1 argument.
+				  </P
+></DD
+><DT
+>currentLine()</DT
+><DD
+><P
+>Returns current line.
+				  </P
+></DD
+><DT
+>currentColumn()</DT
+><DD
+><P
+>Returns current index.
+				  </P
+></DD
+><DT
+>selection()</DT
+><DD
+><P
+>Returns current selection as Selection object.
+				  A selection object has four attributes: 
+				  lineFrom, lineTo, columnFrom and columnTo.
+				  </P
+></DD
+><DT
+>selectedText()</DT
+><DD
+><P
+>						Returns selected text.
+					</P
+></DD
+><DT
+>moveCursor(int left, int down)</DT
+><DD
+><P
+>						Moves cursor, negative values can also be used.
+					</P
+></DD
+><DT
+>line(line_number)</DT
+><DD
+><P
+>Returns line at the given line number.
+				  </P
+></DD
+><DT
+>setMarginStringWidth(margin_number,string)</DT
+><DD
+><P
+>Sets the margin margin_number's width with the given string.
+				  </P
+></DD
+><DT
+>setSelection(from_line,from_index,to_line,to_index)</DT
+><DD
+><P
+>Sets selection.
+				  </P
+></DD
+><DT
+>insertCommand(shell_command)</DT
+><DD
+><P
+>Inserts output of a shell command.
+				  </P
+></DD
+><DT
+>filter(shell_command)</DT
+><DD
+><P
+>Filters selection with a shell command.
+				  </P
+></DD
+><DT
+>fileName()</DT
+><DD
+><P
+>Retrieves the file name of the view.
+				  </P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x230.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Creating Projects</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

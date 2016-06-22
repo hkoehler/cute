@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE cute_project [
+	<!ELEMENT project (file*, cwd+, config+, tagsfile?,bookmark*,current-config,current-file?)>
+	<!ELEMENT file (#PCDATA)>
+	<!ATTLIST file 
+		cursor CDATA #IMPLIED
+		zoom CDATA #IMPLIED
+		load (yes|no) "no"
+		lang CDATA #IMPLIED
+	>
+	<!ELEMENT cwd (#PCDATA)>
+	<!ELEMENT tagsfile (#PCDATA)>
+	<!ELEMENT bookmark EMPTY>
+	<!ATTLIST bookmark 
+		name CDATA #IMPLIED
+		file CDATA #REQUIRED
+		line CDATA #REQUIRED
+	>
+	<!ELEMENT current-file (#PCDATA)>
+	<!ELEMENT current-config EMPTY>
+	<!ATTLIST current-config name IDREF #REQUIRED>
+	<!ELEMENT config (environment*, commands*,var+,build?,compile?,go?)>
+	<!ATTLIST config name ID #REQUIRED >
+	<!ELEMENT var (#PCDATA)>
+	<!ELEMENT build (#PCDATA)>
+	<!ELEMENT compile (#PCDATA)>
+	<!ELEMENT go (#PCDATA)>
+]>
+
+<project>
+	<file cursor="22:22"> cute.cpp </file>
+	<file cursor="1:22" zoom="1"> cute.h </file>
+	<file cursor="1:1" load="yes" lang="Python"> examples/cute.pre_config </file>
+	<cwd> cute </cwd>
+	<tagsfile> tags </tagsfile>
+	<bookmark file="cute.cpp" line="11" />
+	<config name="unix">
+		<var>QTDIR=/usr/bin/qt3</var>
+		<var>PATH=$QTDIR/bin:$PATH</var>
+		<build> make </build>
+		<compile> make %f </compile>
+		<go>bin/cute</go>
+	</config>
+	<config name="win32">
+		<var>QTDIR=C:\qt3</var>
+		<var>PATH=%QTDIR%\bin;%PATH%</var>
+		<build> nmake </build>
+		<compile> nmake %f </compile>
+		<go>bin\CUTE</go>
+	</config>
+	<current-config name="unix" />
+</project>

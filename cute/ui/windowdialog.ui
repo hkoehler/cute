@@ -1,0 +1,173 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>WindowDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>WindowDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>670</width>
+            <height>274</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Windows</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QListBox">
+            <item>
+                <property name="text">
+                    <string>New Item</string>
+                </property>
+            </item>
+            <property name="name">
+                <cstring>WinListBox</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="resizePolicy">
+                <enum>Manual</enum>
+            </property>
+            <property name="variableWidth">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout3</cstring>
+            </property>
+            <property name="layoutSpacing" stdset="0">
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>0</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>NewButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>New</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>create new file</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>CloseButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Close</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>close current file</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>Spacer4_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>OKButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>OK</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>switch to selected window </string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>CancelButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancel</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>close the dialog</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>CancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>WindowDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>NewButton</sender>
+        <signal>clicked()</signal>
+        <receiver>WindowDialog</receiver>
+        <slot>new_slot()</slot>
+    </connection>
+    <connection>
+        <sender>CloseButton</sender>
+        <signal>clicked()</signal>
+        <receiver>WindowDialog</receiver>
+        <slot>close_slot()</slot>
+    </connection>
+    <connection>
+        <sender>OKButton</sender>
+        <signal>clicked()</signal>
+        <receiver>WindowDialog</receiver>
+        <slot>ok_slot()</slot>
+    </connection>
+    <connection>
+        <sender>WinListBox</sender>
+        <signal>selected(const QString&amp;)</signal>
+        <receiver>WindowDialog</receiver>
+        <slot>switchWindow(const QString&amp;)</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>cascade_slot()</slot>
+    <slot>close_slot()</slot>
+    <slot>iconify_slot()</slot>
+    <slot>new_slot()</slot>
+    <slot>ok_slot()</slot>
+    <slot>switchWindow(const QString&amp;)</slot>
+    <slot>tile_slot()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

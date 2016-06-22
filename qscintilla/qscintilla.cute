@@ -1,0 +1,12 @@
+<project>
+    <file zoom="0" cursor="476:3" load="yes" lang="C++" ><![CDATA[qt/qextscintillabase.cxx]]></file>
+    <file zoom="0" cursor="1847:15" load="yes" lang="C++" ><![CDATA[qt/qextscintillabase.h]]></file>
+    <file zoom="0" cursor="36:13" load="yes" lang="C++" ><![CDATA[qt/ScintillaQt.h]]></file>
+    <file zoom="0" cursor="632:21" load="yes" lang="C++" ><![CDATA[qt/ScintillaQt.cxx]]></file>
+    <tagsfile><![CDATA[tags]]></tagsfile>
+    <tagsfile><![CDATA[tags]]></tagsfile>
+    <tagsfile><![CDATA[tags]]></tagsfile>
+    <tagsfile><![CDATA[tags]]></tagsfile>
+    <bookmark line="632" name="void ScintillaQt::paintEvent(QPaintEvent *pe)" file="qt/ScintillaQt.cxx" />
+    <current-file><![CDATA[qt/ScintillaQt.cxx]]></current-file>
+</project>

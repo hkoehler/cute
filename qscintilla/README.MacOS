@@ -1,0 +1,49 @@
+                             QScintilla on MacOS/X
+
+
+All versions of Qt for MacOS/X up to an including Qt v3.3.2 have a bug which
+crashes QScintilla.  The following patch needs to be applied to Qt:
+
+
+--- src/kernel/qt_mac.h	2004-04-21 00:15:43 -0000
++++ src/kernel/qt_mac.h	2004-04-21 00:15:43 -0000
+
+@@ -395,22 +395,28 @@
+ inline QMacSavedPortInfo::~QMacSavedPortInfo()
+ {
+     if(mac_window_count) {
+-	if(valid_gworld) 
+-	    SetGWorld(world,handle); //always do this one first
+-	else
+-	    setPaintDevice(qt_mac_safe_pdev);
+-	SetClip(clip);
+-	DisposeRgn(clip);
+-	SetPenState(&pen);
+-	RGBForeColor(&fore);
+-	RGBBackColor(&back);
++        bool set_state = false;
++        if(valid_gworld) {
++            set_state = IsValidPort(world);
++            if(set_state)
++                SetGWorld(world,handle); //always do this one first
++        } else {
++            setPaintDevice(qt_mac_safe_pdev);
++        }
++        if(set_state) {
++            SetClip(clip);
++            SetPenState(&pen);
++            RGBForeColor(&fore);
++            RGBBackColor(&back);
++        }
++        DisposeRgn(clip);
+     }
+     if(fi)
+ 	delete fi;
+     qt_mac_current_painter = painter;
+ #if defined(QT_THREAD_SUPPORT)
+     if(qt_mac_port_mutex)
+-	qt_mac_port_mutex->unlock();
++        qt_mac_port_mutex->unlock();
+ #endif
+ }
+ 

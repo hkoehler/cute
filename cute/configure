@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if test -z $QTDIR
+then
+	echo QTDIR not set
+	exit
+fi
+
+if test -z $QMAKESPEC
+then
+	echo QMAKESPEC not set
+	exit
+fi
+
+echo " - processing cute.pro..."
+$QTDIR/bin/qmake cute.pro -o Makefile
+echo " - generating makefile"

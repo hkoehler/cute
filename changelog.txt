@@ -1,0 +1,55 @@
+0.2.9
+
+- unload tags file when project is closed
+- added "Use Monospaced Font" option
+- added Fortran syntax highlighting
+- changed macro file type to XML and fixed bug in macro saving
+- macros can now be run in other view as it was recorded
+- bugfix in using Unicode, files were loaded/saved with Latin1 encoding
+- bugfix in search command, one match was not appended to the seach list
+- bugfix in CSS "class" property, class is keyword of python and caused parse error
+- bugfix in shortcuts, edit shortcuts weren't be set when no view was opened
+- bugfix in projects' tags file, couldn't be unloaded
+- bugfix in projects' current dir, if current dir wasn't project dir, last file couldn't be loaded 
+- bugfix in updating of views when view options have changed via menu
+- bugfix in save dialog, when user cancels file save dialog, data was lost
+
+0.2.8
+
+- improved status bar, which is divided into fields now (Nick Thompson)
+- python hooks added by Nick Thompson (not used yet)
+- added selectedText and moveCursor python functions
+- added "switch to command box" command
+- added Matlab and Assembler syntax highlighting
+- added "wordCharacter" property to language configs
+- shortcuts dialog now cheches wether an edit shortcut has more than one key
+- bugfix in shell view
+- bugfix in side docklets, context menu was hidden by docklets menu
+- CUTE checkes wether a file has changed outside and displays a message
+- bugfix in "New File" command, doc number was unititialized
+- bugfix in shortcut dialog, couldn't enter a shortcut with tab, up , down, right and left in it
+- using QScintilla version 1.3 now (many bugfixes were made)
+
+0.2.7 
+
+- added new tags view to message panel, which shows the context of found tag(s)
+- added "find tag" command, which only finds tags without jumping to them
+- added "Handbook Path" option
+- added menu bar, tool bar and command box view options in full screen mode
+- bugfix in options dialog - zoom level options couldn't be set to a value lesser than 0
+- improved navigation in shell view
+- added a prompt and a command history to shell view
+- added commands for switching focus to a specific view
+
+0.2.6
+
+- replaced QextMDI with own MDI
+- bugfix in unloading of tags file, when no tags file was found
+- loaded project is saved in session
+- prevented indirect cast, as gcc versions older than 3.3. can not handle it
+- bugfix in setting of current dir, when loading a project
+- bookmarks are saved in session
+- bugfix in closing of session
+- added "zoomLevel" and "defaultFont" options
+- removed "create project" command
+

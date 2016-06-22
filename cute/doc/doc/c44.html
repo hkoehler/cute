@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>			Editing
+		</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="			CUTE User-friendly Text Editor
+		"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="			The User Interface
+		"
+HREF="c18.html"><LINK
+REL="NEXT"
+TITLE="				CUTE Commands
+			"
+HREF="x69.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>CUTE User-friendly Text Editor</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c18.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x69.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN44"
+></A
+>Chapter 3. 			Editing
+		</H1
+><P
+>			There are three ways to edit text in CUTE. First you can use keyboard commands, 
+			either directly or by means of macros. Second you can use a CUTE command, which you type 
+			in the command box on the toolbar. Finally you can write python scripts, which are 
+			discussed in the 'Programming CUTE' chapter.
+		</P
+><P
+>			A CUTE command can be undone by typing Ctrl+Z. The available editing commands can be seen in 
+			the 'Options &gt; Configure Shortcuts' menu item.
+		</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN48"
+>3.1. Editing Commands</A
+></H1
+><P
+>				CUTE is designed for supporting as much programming languages as possible, thus many common editing commands
+				are defined. The python interface is for new language specific commands.
+			</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN51"
+>3.1.1. Text Modification, Cut, Copy and Paste</A
+></H2
+><P
+>					You can edit text in CUTE just like in any text editor which is compatible with common GUI standards.
+					Two editing modes are supported: inserting and overwriting. Switch between them by pressing Ins.
+					If there is text selected, Cut it with Shift+Del and Paste it with Shift+Ins (the key-bindings may be altered to those of your choosing).
+					Please note that there are two different clipboards available: the X Window clipboard and the clipboard of the current view. When you mark text with the mouse it is copied to the X clipboard and can be pasted by a middle click of the mouse.
+					If your mouse has only two buttons, middle clicks can usually be emulated by clicking the left and right buttons at the same time.
+				</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN54"
+>3.1.2. Selection</A
+></H2
+><P
+>					There are two text selection modes available. The default is Stream selection (where the mouse selects all the text between left button down and left up),
+					but you can switch to rectangle mode by pressing Ctrl+Alt during the selection process (this selects only the text within the rectangular area defined by the mouse).
+					Double-clicking selects a word, where a word is defined as the text between two delimiters (what constitutes a delimiter depends on the current language).
+				</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN57"
+>3.1.3. Bookmarks</A
+></H2
+><P
+>					A bookmark is a highlit line in a file and is created by clicking the margin.
+					The bookmark adjusts automatically when lines are deleted or inserted.
+					You can jump to a bookmark by right clicking the mouse and selecting one from the
+					Bookmarks sub menu (or use the Search menu).
+					To delete one, just click on the margin.
+					If a project is loaded, any bookmarks are stored in the project file.
+				</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN60"
+>3.1.4. Autocompletion</A
+></H2
+><P
+>					Autocompletion completes the current word if a similar word is found.
+					In the options dialog you can select either the current file or the current tags file as the autocompletion source.
+					After you have typed several characters of a word, the autocompletion list will automatically pop up.
+					The number of chars to type before this happens can be defined in the Threshold option in the options dialog.
+					If you prefer to control autocompletion yourself, put a huge number in Threshold so that it never triggers; then when you want to autocomplete a word, type (by default) Ctrl+Return.
+				</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN63"
+>3.1.5. Indentation</A
+></H2
+><P
+>					Indentation is configured by four options: indentationsUseTabs, autoIndent, tabIndents and backspaceUnindents.
+					Normally pressing Tab inserts a tab, but if you set the indentationsUseTabs option you can press Tab anywhere in the line and the whole line will indent one tabs-worth.
+					If autoindent is enabled, when a new line is created by pressing Return, it inherits the current indentation level.
+					indentationsUseTabs decides whether tabs or spaces are used for indentation.
+					The number of spaces is set with the tabWidth option, which you can also set in the Options &#62; Tab Size menu.
+				</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN66"
+>3.1.6. Folding and Zooming</A
+></H2
+><P
+>					Depending on the current programming language, Folding can be used to hide parts of the code
+					e.g. the body of a function or an if statement can be hidden.
+					CUTE supports multifont editing, thus it is laborious to set each font size separately.
+					Zooming increments or decrements each font size.
+				</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c18.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x69.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The User Interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>CUTE Commands</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
